@@ -22,6 +22,7 @@ button {
 	border: 1px solid rgb(170,170,170);
 	border-radius: 3px;
 	color: rgb(100,100,100);
+	background-color: rgb(230,230,230);
 }
 
 button#email {
@@ -74,6 +75,11 @@ input[type="text"] {
 	float: right !important;
 }
 
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .large {
 	width: 68.5% !important;
 }
@@ -106,26 +112,58 @@ input[type="text"] {
 *
 ***/
 
-#labelPoidsProduits {
+#poidsContainer {
 	display: none;
 }
 
-.poids div, .poids input {
+#optionsPoids {
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
+
+#optionsPoids input[type="checkbox"] {
 	float: left;
 }
 
-.poids input {
+#optionsPoids .center {
+	width: 30%;
+}
+
+#optionsPoids label{
+	font-size: 17px;
+	padding-top: 3px;
+	margin-left: 30px;
+}
+
+#optionsPoids #infosPoidsRef {
+	display: none;
+}
+
+#optionsPoids input#poidsRef{
+	background-color: rgb(230,230,255);
+	color: rgb(70,70,255);
+}
+
+#optionsPoids #infosPoidsRef div, #optionsPoids #infosPoidsRef input, .poids div, .poids input {
+	float: left;
+}
+
+#optionsPoids #infosPoidsRef input, .poids input {
 	width: 47%;
 	text-align: right;
 	font-size: 25px;
 }
 
-.poids div {
+#optionsPoids #infosPoidsRef div, .poids div {
 	width: 25%;
 	font-family: sans-serif;
 	color: rgb(100,100,100);
 	text-align: center;
 	margin-top: 27px;
+}
+
+#optionsPoids #infosPoidsRef div{
+	color: rgb(70,70,255);
 }
 
 [class="poids left"], [class="poids center"], [class="poids right"]{

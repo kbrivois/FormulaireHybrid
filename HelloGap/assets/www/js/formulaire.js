@@ -18,6 +18,39 @@ document.addEventListener("hidekeyboard", function() {
 
 /**
  * 
+ * Checkbox "Même poids pour tous les produits"
+ * 
+ */
+
+$("#checkPoids").click(function(){
+	// si checkbox cochée
+	if($(this).is(':checked')) {
+		$("#infosPoidsRef").show();
+		if($("#poidsRef").val() != "") {
+			$("#product #listePoids .poids input").each(function(index) {
+				$(this).val($("#poidsRef").val());
+			});
+		}
+	}
+	else {
+		$("#infosPoidsRef").hide();
+	}
+});
+
+// focusout sur le champs #poidsRef 
+$("#poidsRef").focusout(function(){
+	var poidsSaisi = parseInt($(this).val());
+	// si le poids saisi est un nombre et qu'il est entier
+	if($.isNumeric(poidsSaisi) && (poidsSaisi%1 == 0)) {
+		$("#product #listePoids .poids input").each(function(index) {
+			$(this).val(poidsSaisi);
+		});
+	}
+});
+
+
+/**
+ * 
  * Focus sur le champ des quantités
  * 
  */
@@ -33,15 +66,28 @@ $("#productQuantity").focus(function(){
 });
 
 $("#productQuantity").focusout(function(){
-	// Si la valeur du champ n'est pas un nombre ou que ce n'est pas un entier
-	if(!$.isNumeric($(this).val()) || $(this).val()%1 != 0) {
-		$(this).val("Quantité...");
-		$(this).attr("style","color:#999999;font-size:20px;font-style:italic;text-align:left;");
+	
+	var quantiteSaisie = parseInt($(this).val());
+	
+	if(quantiteSaisie == 0)
+		$("#poidsContainer").hide();
+	else
+		$("#poidsContainer").show();
+	
+	// Si la valeur du champ n'est pas un nombre
+	if(!$.isNumeric(quantiteSaisie) || (quantiteSaisie%1 != 0)) {
+		// s'il aucun nombre de produit n'avait été saisi
+		if(nbProduit == 0) {
+			$("#poidsContainer").hide();
+			$(this).val("Quantité...");
+			$(this).attr("style","color:#999999;font-size:20px;font-style:italic;text-align:left;");
+		}
+		else {
+			$(this).val(nbProduit);
+			quantiteSaisie = nbProduit;
+		}
 	}
 	else {
-		
-		var quantiteSaisie = parseInt($(this).val());
-		
 		// s'il aucun nombre de produit n'avait été saisi
 		if(nbProduit == 0) {
 			// on crée un <div class='poids'> pour chaque produit
@@ -103,4 +149,17 @@ $("#productQuantity").focusout(function(){
 
 		nbProduit = quantiteSaisie;
 	}
+});
+
+
+/**
+ * 
+ * Envoi du formulaire
+ * 
+ */
+
+$("#send").click(function(){
+	var bodyMail = "";
+	
+	bodyMail += "";
 });

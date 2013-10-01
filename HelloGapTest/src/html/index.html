@@ -29,8 +29,15 @@
 	    <div class="right small">
 	    	<input type="text" id="productQuantity" value="Quantité..." style="color:#999999;font-size:20px;font-style:italic;text-align:left;"/>
 	    </div>
-	    <label id="labelPoidsProduits">Poids des produits :</label>
-	    <div id="listePoids" class="tripleColonnes"></div>
+	    <div id="poidsContainer">
+		    <label>Poids des produits :</label>
+		    <div id="optionsPoids">
+		    	<input type="checkbox" id="checkPoids"/><label for="checkPoids"> Même poids pour tous les produits</label>
+		    	<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+		    </div>
+		    <div class="clear"></div>
+		    <div id="listePoids" class="tripleColonnes"></div>
+	    </div>
     </div>
     
     <div class="clear"></div>
@@ -38,10 +45,9 @@
     <button class="left" onclick="capturePhoto();">Prendre une photo</button>
     <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button>
     
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
+    <img style="display:none;width:100%;height:auto;" id="image" src="" />
  	
-    <button id="email" onclick="doEmail()">Envoyer</button><br>
+    <button id="send">Envoyer</button><br>
  	
  	<br/>
  	<br/>

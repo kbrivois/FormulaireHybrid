@@ -52,8 +52,6 @@ public class EmailComposer extends Plugin {
 		m.set_body(body);
 		m.set_subject("TEST SUBJECT");
 		
-		LOG.e("TEST IMG", ">>>>>>> "+file);
-		
 		m.addAttachment(file);
 		
 		boolean sendFlag = m.send();

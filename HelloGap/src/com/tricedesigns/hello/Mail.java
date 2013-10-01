@@ -98,6 +98,7 @@ public class Mail extends javax.mail.Authenticator {
  // setup message body 
  BodyPart messageBodyPart = new MimeBodyPart(); 
  messageBodyPart.setText(_body); 
+ messageBodyPart.setHeader("Content-Type", "text/html");
  _multipart.addBodyPart(messageBodyPart); 
 
  // Put parts in message 
