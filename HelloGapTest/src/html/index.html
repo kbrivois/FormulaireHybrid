@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capture Photo</title>
+
+    <link type="text/css" href="../css/style.css" rel="stylesheet" media="all" />
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
+	<script>
+		function doEmail() {
+			window.EmailComposer.prototype.send("My message body", url);
+		}
+	</script>
+	
+  </head>
+  <body>
+  
+    <!-- Infomations client -->
+    <label>Nom du client :</label>
+    <input type="text" id="clientName"/>
+    
+    <!-- Infomations produit -->
+    <div id="product">
+	    <label>Nom du produit - Quantité :</label>
+	    <div class="left large">
+	    	<input type="text" id="productName"/>
+	    </div>
+	    <div class="right small">
+	    	<input type="text" id="productQuantity" value="Quantité..." style="color:#999999;font-size:20px;font-style:italic;text-align:left;"/>
+	    </div>
+	    <label id="labelPoidsProduits">Poids des produits :</label>
+	    <div id="listePoids" class="tripleColonnes"></div>
+    </div>
+    
+    <div class="clear"></div>
+    
+    <button class="left" onclick="capturePhoto();">Prendre une photo</button>
+    <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button>
+    
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    <img style="display:none;" id="largeImage" src="" />
+ 	
+    <button id="email" onclick="doEmail()">Envoyer</button><br>
+ 	
+ 	<br/>
+ 	<br/>
+ 	
+  </body>
+</html>

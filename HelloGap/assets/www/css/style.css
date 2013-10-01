@@ -1,0 +1,139 @@
+body {
+	width: 95%;
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+}
+
+label{
+	display: block;
+	font-size: 25px;
+	font-family: sans-serif;
+	color: rgb(100,100,100);
+}
+
+button {
+	width: 100%;
+	height: 70px;
+	margin: 10px auto;
+	font-size: 20px;
+	font-family: sans-serif;
+	border: 1px solid rgb(170,170,170);
+	border-radius: 3px;
+	color: rgb(100,100,100);
+}
+
+button#email {
+	background-color: rgb(150,150,255);
+	color: white;
+	border: none;
+}
+
+input[type="text"] {
+	width: 100%;
+	height: 50px;
+	margin: 10px auto;
+	display: block;
+	font-size: 30px;
+	font-family: sans-serif;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	background: #fff;
+	color: #666;
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.15),transparent 0 0 0;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.15),transparent 0 0 0;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.15),transparent 0 0 0;
+	-webkit-transition: background .3s ease-in-out;
+	-moz-transition: background .3s ease-in-out;
+	-ms-transition: background .3s ease-in-out;
+	-o-transition: background .3s ease-in-out;
+}
+
+#smallImage {
+	width:60px;
+	height:60px;
+	display:none;
+}
+
+#largeImage {
+	display:none;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	width: 48.5% !important;
+	float: left !important;
+}
+
+.right {
+	width: 48.5% !important;
+	float: right !important;
+}
+
+.large {
+	width: 68.5% !important;
+}
+
+.small {
+	width: 28.5% !important;
+}
+
+.small input {
+	text-align: right;
+}
+
+.tripleColonnes .left {
+	float: left;
+}
+
+.tripleColonnes .center {
+	float: none;
+	margin: auto;
+}
+
+.tripleColonnes .right {
+	float: right;
+}
+
+
+/***
+*
+* POIDS
+*
+***/
+
+.poids div, .poids input {
+	float: left;
+}
+
+.poids input {
+	width: 47%;
+	text-align: right;
+	font-size: 25px;
+}
+
+.poids div {
+	width: 25%;
+	font-family: sans-serif;
+	color: rgb(100,100,100);
+	text-align: center;
+	margin-top: 27px;
+}
+
+[class="poids left"], [class="poids center"], [class="poids right"]{
+	width: 30% !important;
+}
+
+
+/* RESET */
+span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	margin: 0;
+	outline: 0 none;
+	padding: 0;
+}
