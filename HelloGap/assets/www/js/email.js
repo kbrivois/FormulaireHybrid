@@ -6,8 +6,8 @@ cordova.addConstructor(function() {
 */
 EmailComposer.prototype.send = function (message,attachement){
 console.log("Calling the send message");
-cordova.exec(function(){ alert('feedback sent')}, 
-    function(){ alert('feedback was not sent')}, 
+cordova.exec(function(){ alert('Les informations ont bien été envoyées !')}, 
+    function(){ alert('Les informations n\'ont pas pu être envoyées...')}, 
     'EmailComposer', 
     'sendEmail', 
     [message,attachement]);

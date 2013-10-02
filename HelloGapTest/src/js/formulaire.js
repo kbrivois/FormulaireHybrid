@@ -209,6 +209,10 @@ $("#productQuantity").focusout(function(){
  */
 
 $("#send").click(function(){
+	$("#chargement").show();
+	
+	setInterval(function(){}, 10000);
+	
 	var bodyMail = "";
 	
 	bodyMail += "<div style='font-family:sans-serif'>";
@@ -217,7 +221,7 @@ $("#send").click(function(){
 	bodyMail += "<div style='width:150px;float:left;'><strong>Produit : </strong></div><div style='float:left'>"+$("#productName").val()+"</div>";
 	// si une quantité a été saisie
 	if($("#productQuantity").val() != "" && $("#productQuantity").val() != 0) {
-		bodyMail += "<div style='width:150px;float:left;margin-left:20px'><strong>x "+$("#productQuantity").val()+"</strong></div><br/>";
+		bodyMail += "<div style='width:150px;float:left;margin-left:20px'><strong>x "+$("#productQuantity").val()+" = "+poidsTotal+" Kg</strong></div><br/>";
 		bodyMail += "<table style='border-collapse:collapse;margin-top:20px;float:left;border:1px solid black'><tbody>";
 		$("#product #listePoids .poids input").each(function(index) {
 			if(index == 0) {
@@ -233,5 +237,5 @@ $("#send").click(function(){
 	}
 	bodyMail += "</div>";
 	
-	
+	$("#chargement").hide();
 });
