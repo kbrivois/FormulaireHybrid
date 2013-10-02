@@ -10,23 +10,6 @@
     <script type="text/javascript" charset="utf-8" src="../js/cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/camera.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/email.js"></script>
-	<script>
-		function doEmail() {
-			
-			window.EmailComposer.prototype.send("<strong>My message</strong> body", url);
-			/*
-			window.plugins.emailComposer.showEmailComposerWithCallback(null,"Beau gosse","Voici un fucking BG !!",["kevbriv@hotmail.fr"],[],[],true,[]);
-			
-			var smallImage = document.getElementById('smallImage');
-			if(smallImage.src != null) {
-				var lienImg = smallImage.src;
-			    window.plugins.emailComposer.showEmailComposer("Beau gosse","Voici un fucking BG !!", "kevbriv@hotmail.fr", null, null, lienImg);
-			} else {
-				alert("Il faut choisir une photo !!");
-			}
-			*/
-		}
-	</script>
 	
   </head>
   <body>
@@ -52,6 +35,8 @@
 		    </div>
 		    <div class="clear"></div>
 		    <div id="listePoids" class="tripleColonnes"></div>
+		    <div class="clear"></div>
+		    <label id="poidsTotal">Poids total : <div></div></label>
 	    </div>
     </div>
     
@@ -62,7 +47,7 @@
     
     <img style="display:none;width:100%;height:auto;" id="image" src="" />
  	
-    <button id="email" onclick="doEmail()">Envoyer</button><br>
+    <button id="send">Envoyer</button><br>
  	
  	<br/>
  	<br/>
