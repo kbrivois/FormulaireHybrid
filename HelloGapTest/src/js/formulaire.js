@@ -41,6 +41,14 @@ function addFocus() {
 		// on retire l'ancienne valeur
 		if($.isNumeric(valeurInFocus))
 			poidsTotal -= parseInt(valeurInFocus);
+		
+		// si la checkbox "même poids" était cochée et que le poids rentré dans le input est différent du poids ref
+		if($("#checkPoids").is(':checked') && $(this).val() != $("#poidsRef").val()) {
+			$("#checkPoids").attr('checked', false);
+			$("#poidsRef").val("");
+			$("#infosPoidsRef").hide();
+		}
+		
 		$("#poidsTotal div").html(poidsTotal+" Kg");
 	});
 }
@@ -61,16 +69,11 @@ $("#checkPoids").click(function(){
 	// si checkbox cochée
 	if($(this).is(':checked')) {
 		$("#infosPoidsRef").show();
-		if($("#poidsRef").val() != "") {
-			$("#product #listePoids .poids input").each(function(index) {
-				$(this).val($("#poidsRef").val());
-			});
-			poidsTotal += parseInt($("#poidsRef").val()) * nbProduits;
-			$("#poidsTotal div").html(poidsTotal+" Kg");
-		}
 	}
+	// si checkbox décochée
 	else {
 		$("#infosPoidsRef").hide();
+		$("#poidsRef").val("");
 	}
 });
 
@@ -78,6 +81,7 @@ $("#checkPoids").click(function(){
 $("#poidsRef").focusout(function(){
 	// si le poids saisi est un nombre et qu'il est entier
 	if($.isNumeric($(this).val()) && ($(this).val() % 1 == 0)) {
+		poidsTotal = 0;
 		var poidsSaisi = parseInt($(this).val());
 		$("#product #listePoids .poids input").each(function(index) {
 			$(this).val(poidsSaisi);
