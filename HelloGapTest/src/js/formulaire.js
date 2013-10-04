@@ -19,7 +19,7 @@ addFocus();
 
 function addFocus() {
 	
-	// on retire les Ã©vÃ©nement des champs input dans la partie "#listePoids .poids"
+	// on retire les évènements des champs input dans la partie "#listePoids .poids"
 	$("#listePoids .poids input").off();
 	
 	$("#listePoids .poids input").focus(function() {
@@ -213,12 +213,11 @@ $("#productQuantity").focusout(function(){
  */
 
 $("#send").click(function(){
-	$("#chargement").show();
-	
-	setInterval(function(){}, 10000);
-	
+
+	$("#chargement").show("medium");
+
 	var bodyMail = "";
-	
+
 	bodyMail += "<div style='font-family:sans-serif'>";
 	bodyMail += "<div style='width:150px;float:left'><strong>Client : </strong></div><div style='float:left'>"+$("#clientName").val()+"</div><br/>";
 	bodyMail += "<div style='clear:both'></div>";
@@ -240,6 +239,12 @@ $("#send").click(function(){
 		bodyMail += "</tr>";
 	}
 	bodyMail += "</div>";
-	
-	$("#chargement").hide();
+
+	// on envoie l'email
+	if(url == "" || url == null) {
+		alert("Il faut prendre une photo !")
+	}
+	else {
+		window.EmailComposer.prototype.send(bodyMail, url);
+	}
 });

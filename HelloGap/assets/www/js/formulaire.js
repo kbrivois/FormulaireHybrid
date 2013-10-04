@@ -214,10 +214,10 @@ $("#productQuantity").focusout(function(){
 
 $("#send").click(function(){
 
-	$("#chargement").show();
-	
+	$("#chargement").show("medium");
+
 	var bodyMail = "";
-	
+
 	bodyMail += "<div style='font-family:sans-serif'>";
 	bodyMail += "<div style='width:150px;float:left'><strong>Client : </strong></div><div style='float:left'>"+$("#clientName").val()+"</div><br/>";
 	bodyMail += "<div style='clear:both'></div>";
@@ -239,7 +239,7 @@ $("#send").click(function(){
 		bodyMail += "</tr>";
 	}
 	bodyMail += "</div>";
-	
+
 	// on envoie l'email
 	if(url == "" || url == null) {
 		alert("Il faut prendre une photo !")
@@ -247,6 +247,4 @@ $("#send").click(function(){
 	else {
 		window.EmailComposer.prototype.send(bodyMail, url);
 	}
-	
-	$("#chargement").hide();
 });
