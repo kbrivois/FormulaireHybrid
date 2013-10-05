@@ -9,7 +9,8 @@ console.log("Calling the send message");
 cordova.exec(
 	function(){ 
 		$("#chargement").hide();
-		alert('Les informations ont bien été envoyées !')
+		alert('Les informations ont bien été envoyées !');
+		location.reload();
 	}, 
     function(){ 
 		$("#chargement").hide();

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+    
     <title>Capture Photo</title>
 
-    <link type="text/css" href="../css/style.css" rel="stylesheet" media="all" />
+    <link type="stylesheet" href="../css/style.css" rel="stylesheet" media="all" />
+    <link type="stylesheet" href="../css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" media="all" />
 
     <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
     <script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
 	
@@ -13,43 +18,61 @@
   <body>
   	<div id="chargement"><img id="img-loading" src="../img/ajax-loading.gif"/></div>
   
-    <!-- Infomations client -->
-    <label>Nom du client :</label>
-    <input type="text" id="clientName"/>
-    
-    <!-- Infomations produit -->
-    <div id="product">
-	    <label>Nom du produit - Quantité :</label>
-	    <div class="left large">
-	    	<input type="text" id="productName"/>
-	    </div>
-	    <div class="right small">
-	    	<input type="text" id="productQuantity" value="Quantité..." style="color:#999999;font-size:20px;font-style:italic;text-align:left;"/>
-	    </div>
-	    <div id="poidsContainer">
-		    <label>Poids des produits :</label>
-		    <div id="optionsPoids">
-		    	<input type="checkbox" id="checkPoids"/><label for="checkPoids"> Même poids pour tous les produits</label>
-		    	<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+  	<!-- Page Menu -->
+  
+  	<div id="pageMenu"></div>
+  	
+  	<!-- Page formulaire -->
+  	
+  	<div id="pageFormulaire">
+	    <!-- Infomations client -->
+	    <label>Nom du client :</label>
+	    <input type="text" id="clientName"/>
+	    
+	    <!-- Infomations produit -->
+	    <div id="product">
+		    <label>Nom du produit - Quantité :</label>
+		    <div class="left large">
+		    	<input type="text" id="productName"/>
 		    </div>
-		    <div class="clear"></div>
-		    <div id="listePoids" class="tripleColonnes"></div>
-		    <div class="clear"></div>
-		    <label id="poidsTotal">Poids total : <div></div></label>
+		    <div class="right small">
+		    	<input type="text" id="productQuantity" value="Quantité..." style="color:#999999;font-size:20px;font-style:italic;text-align:left;"/>
+		    </div>
+		    <div id="poidsContainer">
+			    <label>Poids des produits :</label>
+			    <div id="optionsPoids">
+			    	
+			    	<!-- check poids -->
+			    	<label id="checkPoids">Même poids pour tous les produits</label>
+			    	<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+			    	
+			    	<!-- check DLC -->
+			    	<label id="checkDLC">Même DLC pour tous les produits</label>
+			    	<div id="infosDLCRef" class="center"><div><strong>></strong></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
+			    
+			    </div>
+			    <div class="clear"></div>
+			    <div id="listePoids" class="tripleColonnes"></div>
+			    <div class="clear"></div>
+			    <label id="poidsTotal">Poids total : <div></div></label>
+		    </div>
 	    </div>
-    </div>
-    
-    <div class="clear"></div>
-    
-    <button class="left" onclick="capturePhoto();">Prendre une photo</button>
-    <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button>
-    
-    <img style="display:none;width:100%;height:auto;" id="image" src="" />
+	    
+	    <div class="clear"></div>
+	    
+	    <button class="left" onclick="capturePhoto();">Prendre une photo</button>
+	    <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button>
+	    
+	    <img style="display:none;width:100%;height:auto;" id="image" src="" />
+	 	
+	 	<div class="clear"></div>
+	 	
+	    <button id="send">Envoyer</button><br>
+	 	
+	 	<br/>
+	 	<br/>
  	
-    <button id="send">Envoyer</button><br>
- 	
- 	<br/>
- 	<br/>
+ 	</div>
  	
   </body>
 </html>

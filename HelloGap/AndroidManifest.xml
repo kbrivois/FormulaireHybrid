@@ -29,18 +29,18 @@
 	<uses-permission android:name="android.permission.BROADCAST_STICKY" />
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="12"
         android:targetSdkVersion="18" />
 
     <application
-    	android:configChanges="orientation|keyboardHidden"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.tricedesigns.hello.HelloGapActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+    		android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"> 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,7 +50,7 @@
         <activity 
 		    android:name="org.apache.cordova.DroidGap" 
     		android:label="@string/app_name" 
-    		android:configChanges="orientation|keyboardHidden"> 
+    		android:configChanges="orientation|screenSize|keyboardHidden">
     			<intent-filter></intent-filter> 
 		</activity>
     </application>
