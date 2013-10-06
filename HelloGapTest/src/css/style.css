@@ -1,16 +1,47 @@
 html {
-	background: url("../img/fond.bmp") repeat;
+	background: url("../img/fond.png") repeat;
 }
-
 body {
-	width: 95%;
-	max-width: 900px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 20px;
-	margin-bottom: 35px;
+	width: 1000px;
+	margin: 20px auto 35px auto;
+	font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+	position: relative;
 }
 
+/* HEADER */
+#header {
+	width: 100%;
+	height: 50px;
+	left: 0;
+    top: 0;
+	position: fixed;
+	background: linear-gradient(to bottom, #009FE0, #018EC8) repeat scroll 0 0 #009FE0;
+	margin: auto;
+	text-align: center;
+	z-index: 100;
+}
+#header h1 {
+	width: 155px;
+	padding: 12px;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: 400;
+	border-right: 1px white solid;
+	display: inline-block;
+	cursor: pointer;
+}
+#header h1:first-child {
+	border-left: 1px white solid;
+}
+#header h1.current {
+	background: linear-gradient(to bottom, #FFFFFF, #E6E6E6) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	color: #009FE0;
+	border: none;
+}
+
+
+/* CHARGEMENT & IMAGE */
 #chargement {
 	width: 100%;
 	height: 100%;
@@ -21,51 +52,78 @@ body {
 	display: none;
 	z-index: 100;
 }
-
 #img-loading {
 	width: 150px;
 	margin: auto;
 	display: block;
 }
 
-label{
+#content {
+	width: 1000px;
+	overflow: hidden;
+	margin-top: 75px;
+	position: relative;
+}
+
+/* PAGE FORMULAIRE */
+#pageFormulaire {
+	width: 770px;
+	position: relative;
+	float: left;
+}
+#pageFormulaire label, #pageFormulaire span {
 	display: block;
 	font-size: 25px;
-	font-family: sans-serif;
 	color: rgb(100,100,100);
+	font-weight: 400;
 }
 
-button {
-	width: 100%;
-	height: 70px;
-	margin: 10px auto;
-	font-size: 20px;
-	font-family: sans-serif;
-	border: none;
-	border-radius: 3px;
-	color: white;
-	background-color: rgb(100,100,100);
+/* COLONNE */
+#colonne {
+	width: 200px;
+	float: right;
+	overflow: hidden;
+	position: relative;
 }
-
-button#send {
-	width: 95%;
-	max-width: 900px;
+#image {
+	width: 200px;
 	position: fixed;
-	margin: auto;
-	bottom: 10px;
-	background-color: rgb(150,150,255);
-	color: white;
-	border: none;
-	opacity: 0.8;
+	margin-bottom: 15px;
+	display: block;
 }
+
+/* BOUTONS */
+button {
+	width: 200px;
+	height: 50px;
+	font-size: 20px;
+	margin: auto;
+	padding: 5px 8px;
+	border-radius: 4px 4px 4px 4px;
+	color: white;
+	background: linear-gradient(to bottom, #FBB450, #F89406) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #DF8B13;
+	position: fixed;
+	margin-bottom: 15px;
+}
+button#send {
+	width: 200px;
+	margin-top: 15px;
+	background: linear-gradient(to bottom, #009FE0, #018EC8) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #037BAC;
+}
+
+
+
+
 
 input[type="text"] {
-	width: 100%;
+	width: 96%;
 	height: 50px;
 	margin: 10px auto;
+	padding: 0 2%;
 	display: block;
 	font-size: 30px;
-	font-family: sans-serif;
 	border: 1px solid #aaa;
 	border-radius: 3px;
 	background: #fff;
@@ -133,11 +191,7 @@ input[type="text"] {
 }
 
 
-/***
-*
-* POIDS
-*
-***/
+/* POIDS */
 
 #poidsContainer {
 	display: none;
@@ -170,7 +224,7 @@ input[type="text"] {
 	margin-bottom: 10px;
 }
 
- #optionsPoids #infosPoidsRef, #optionsPoids #infosDLCRef {
+#optionsPoids #infosPoidsRef, #optionsPoids #infosDLCRef {
 	display: none;
 }
 
@@ -202,7 +256,6 @@ input[type="text"] {
 
 #optionsPoids #infosPoidsRef div, #optionsPoids #infosDLCRef div, .poids div:not(.inputs) {
 	width: 25%;
-	font-family: sans-serif;
 	color: rgb(100,100,100);
 	text-align: center;
 	margin: 27px 0 27px 0;
