@@ -21,7 +21,7 @@ addFocus();
 
 function addFocus() {
 	
-	// on retire les évènements des champs input dans la partie "#listePoids .poids"
+	// on retire les Ã©vÃ©nements des champs input dans la partie "#listePoids .poids"
 	$("#listePoids .poids input").off();
 	
 	$("#listePoids .poids input").focus(function() {
@@ -43,7 +43,7 @@ function addFocus() {
 		if($.isNumeric(valeurInFocus))
 			poidsTotal -= parseInt(valeurInFocus);
 		
-		// si la checkbox "même poids" était cochée et que le poids rentré dans le input est différent du poids ref
+		// si la checkbox "mÃªme poids" Ã©tait cochÃ©e et que le poids rentrÃ© dans le input est diffÃ©rent du poids ref
 		if(checkPoids && $(this).val() != $("#poidsRef").val()) {
 			actionOptionsProduits("checkPoids");
 		}
@@ -53,7 +53,7 @@ function addFocus() {
 	
 	// au focusout d'un inputDLC dans un div .poids
 	$("#listePoids .poids .inputDLC").focusout(function(){
-		// si la checkbox "même DLC" était cochée et que la DLC rentrée dans le input est différente de la DLC ref
+		// si la checkbox "mÃªme DLC" Ã©tait cochÃ©e et que la DLC rentrÃ©e dans le input est diffÃ©rente de la DLC ref
 		if(checkDLC && $(this).val() != $("#DLCRef").val()) {
 			actionOptionsProduits("checkDLC");
 		}
@@ -62,29 +62,29 @@ function addFocus() {
 	applyDatePicker();
 }
 
-//si le clavier virtuel disparaît, on fait perdre le focus de l'input.
+//si le clavier virtuel disparaÃ®t, on fait perdre le focus de l'input.
 document.addEventListener("hidekeyboard", function() {
 	inputEnCours.blur();
 	$("#send").show();
 }, false);
 
-//si le clavier virtuel apparaît, on fait disparaître le bouton "envoyer"
+//si le clavier virtuel apparaÃ®t, on fait disparaÃ®tre le bouton "envoyer"
 document.addEventListener("showkeyboard", function() {
 	$("#send").hide();
 }, false);
 
 /**
  * 
- * clique sur "Même poids pour tous les produits" ou "Même DLC pour tous les produits"
+ * clique sur "MÃªme poids pour tous les produits" ou "MÃªme DLC pour tous les produits"
  * 
  */
 
 function actionOptionsProduits(div) {
-	// si on s'intéresse au menu "même poids"
+	// si on s'intÃ©resse au menu "mÃªme poids"
 	if(div == "checkPoids") {
-		// si checkboxPoids n'était pas sélectionné
+		// si checkboxPoids n'Ã©tait pas sÃ©lectionnÃ©
 		if(!checkPoids) {
-			// on le sélectionne
+			// on le sÃ©lectionne
 			$("#infosPoidsRef").slideDown('fast');
 			$("#"+div).css("box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
 			$("#"+div).css("-webkit-box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
@@ -92,20 +92,20 @@ function actionOptionsProduits(div) {
 			$("#"+div).css("color", "white");
 			checkPoids = true;
 		}
-		// si checkboxPoids était sélectionné
+		// si checkboxPoids Ã©tait sÃ©lectionnÃ©
 		else {
-			// on le désélectionne
+			// on le dÃ©sÃ©lectionne
 			$("#infosPoidsRef").slideUp('fast');
 			$("#poidsRef").val("");
 			$("#"+div).attr("style", "");
 			checkPoids = false;
 		}
 	}
-	// si on s'intéresse au menu "même DLC"
+	// si on s'intÃ©resse au menu "mÃªme DLC"
 	else if(div == "checkDLC") {
-		// si checkboxPoids n'était pas sélectionné
+		// si checkDLC n'Ã©tait pas sÃ©lectionnÃ©
 		if(!checkDLC) {
-			// on le sélectionne
+			// on le sÃ©lectionne
 			$("#infosDLCRef").slideDown('fast');
 			checkDLC = true;
 			$("#"+div).css("box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
@@ -113,9 +113,9 @@ function actionOptionsProduits(div) {
 			$("#"+div).css("background", "rgb(150,150,250)");
 			$("#"+div).css("color", "white");
 		}
-		// si checkboxPoids était sélectionné
+		// si checkboxDLC Ã©tait sÃ©lectionnÃ©
 		else {
-			// on le désélectionne
+			// on le dÃ©sÃ©lectionne
 			$("#infosDLCRef").slideUp('fast');
 			$("#DLCRef").val("");
 			checkDLC = false;
@@ -159,12 +159,12 @@ $("#DLCRef").focusout(function(){
 
 /**
  * 
- * Focus sur le champ des quantités
+ * Focus sur le champ des quantitÃ©s
  * 
  */
 
 $("#productQuantity").focus(function(){
-	// Si la valeur du champ n'est pas un nombre (si = "Quantité...")
+	// Si la valeur du champ n'est pas un nombre (si = "QuantitÃ©...")
 	if(!$.isNumeric($(this).val())) {
 		$(this).val("");
 		$(this).attr("style","");
@@ -184,10 +184,10 @@ $("#productQuantity").focusout(function(){
 	
 	// Si la valeur du champ n'est pas un nombre
 	if(!$.isNumeric(quantiteSaisie) || (quantiteSaisie%1 != 0)) {
-		// s'il aucun nombre de produit n'avait été saisi
+		// s'il aucun nombre de produit n'avait Ã©tÃ© saisi
 		if(nbProduits == 0) {
 			$("#poidsContainer").hide();
-			$(this).val("Quantité...");
+			$(this).val("QuantitÃ©...");
 			$(this).attr("style","color:#999999;font-size:20px;font-style:italic;text-align:left;");
 		}
 		else {
@@ -196,9 +196,9 @@ $("#productQuantity").focusout(function(){
 		}
 	}
 	else {
-		// s'il aucun nombre de produit n'avait été saisi
+		// s'il aucun nombre de produit n'avait Ã©tÃ© saisi
 		if(nbProduits == 0) {
-			// on crée un <div class='poids'> pour chaque produit
+			// on crÃ©e un <div class='poids'> pour chaque produit
 			for(var i=0; i<quantiteSaisie; i++) {
 				if(i%3 == 0)
 					$("#product #listePoids").append("<div class='poids left'>" +
@@ -238,11 +238,11 @@ $("#productQuantity").focusout(function(){
 		else if(quantiteSaisie < nbProduits) {
 			poidsTotal = 0;
 			$("#product #listePoids .poids").each(function(index) {
-				// si l'on se trouve dans les input à retirer
+				// si l'on se trouve dans les input Ã  retirer
 				if(index >= quantiteSaisie) {
 					$(this).remove();
 				}
-				// sinon, on incrémente le poids total
+				// sinon, on incrÃ©mente le poids total
 				else {
 					if($.isNumeric($(this).find("input").val()))
 						poidsTotal += parseInt($(this).find("input").val());
@@ -304,8 +304,7 @@ $("#productQuantity").focusout(function(){
  */
 
 $("#send").click(function(){
-	$("#chargement").show("medium");
-/*
+
 	// s'il n'y pas de photo
 	if(url == "" || url == null) {
 		alert("Il faut prendre une photo !")
@@ -319,7 +318,7 @@ $("#send").click(function(){
 		bodyMail += "<div style='width:150px;float:left'><strong>Client : </strong></div><div style='float:left'>"+$("#clientName").val()+"</div><br/>";
 		bodyMail += "<div style='clear:both'></div>";
 		bodyMail += "<div style='width:150px;float:left;'><strong>Produit : </strong></div><div style='float:left'>"+$("#productName").val()+"</div>";
-		// si une quantité a été saisie
+		// si une quantitÃ© a Ã©tÃ© saisie
 		if($("#productQuantity").val() != "" && $("#productQuantity").val() != 0) {
 			bodyMail += "<div style='width:150px;float:left;margin-left:20px'><strong>x "+$("#productQuantity").val()+" = "+poidsTotal+" Kg</strong></div><br/>";
 			bodyMail += "<table style='border-collapse:collapse;margin-top:20px;float:left;border:1px solid black'><tbody>";
@@ -343,5 +342,4 @@ $("#send").click(function(){
 		
 		window.EmailComposer.prototype.send(bodyMail, url);
 	}
-	*/
 });

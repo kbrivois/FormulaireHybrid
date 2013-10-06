@@ -331,9 +331,9 @@ $("#send").click(function(){
 					bodyMail += "<tr>";
 				}
 				bodyMail += "<td style='height:50px;width:120px;text-align:center;border:1px solid black'>"+
-								(index+1)+" = <strong>"+$(this).find("inputPoids").val()+" Kg</strong>" +
+								(index+1)+" = <strong>"+$(this).find(".inputPoids").val()+" Kg</strong>" +
 								"<br/>" +
-								"<strong>"+$(this).find("inputDLC").val()+"</strong>" +
+								"<strong>"+$(this).find(".inputDLC").val()+"</strong>" +
 							"</td>";
 			});
 			bodyMail += "</tr>";
