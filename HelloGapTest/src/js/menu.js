@@ -20,3 +20,10 @@ $("#scrollerColonne").click(function() {
 		colonneIsVisible = false;
 	}
 });
+
+$("#header h1").click(function() {
+	$("#header h1").each(function() {
+		$(this).attr("class","");
+	});
+	$(this).attr("class","current");
+});

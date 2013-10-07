@@ -33,67 +33,64 @@
 		<div id="pageMenu"></div>
 		
 		<div id="content">
-			<!-- Page formulaire -->
-			<div id="pageFormulaire">
-			
-				<!-- Infomations client -->
-				<label>Client :</label>
-				<input type="text" id="clientName"/>
+		
+			<!-- Infomations client -->
+			<label>Client :</label>
+			<input type="text" id="clientName"/>
 
-				<!-- Infomations produit -->
-				<div id="product">
-					<div class="left large">
-						<span>Nom du produit :</span>
-					</div>
-					<div class="right small">
-						<span style="float: right;">Quantité :</span>
-					</div>
-					<div class="left large">
-						<input type="text" id="productName"/>
-					</div>
-					<div class="right small">
-						<input type="text" id="productQuantity" style="text-align:right;" />
-					</div>
-					<div id="poidsContainer">
-						<label>Poids et DLC des produits :</label>
-						<div id="optionsPoids">
-							
-							<!-- check poids -->
-							<label id="checkPoids">Même poids pour tous les produits</label>
-							<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
-							
-							<!-- check DLC -->
-							<label id="checkDLC">Même DLC pour tous les produits</label>
-							<div id="infosDLCRef" class="center"><div><strong>></strong></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
+			<!-- Infomations produit -->
+			<div id="product">
+				<div class="left large">
+					<span>Nom du produit :</span>
+				</div>
+				<div class="right small">
+					<span style="float: right;">Quantité :</span>
+				</div>
+				<div class="left large">
+					<input type="text" id="productName"/>
+				</div>
+				<div class="right small">
+					<input type="text" id="productQuantity" style="text-align:right;" />
+				</div>
+				<div id="poidsContainer">
+					<label>Poids et DLC des produits :</label>
+					<div id="optionsPoids">
 						
-						</div>
-						<div class="clear"></div>
-						<div id="listePoids" class="tripleColonnes"></div>
-						<div class="clear"></div>
-						<label id="poidsTotal">Poids total : <div></div></label>
-					</div>
-				</div>
-
-				<div class="clear"></div>
-				
-			</div>
-
-			<div id="scrollerColonne">
-				<div class="barre"></div>
-				<div class="barre"></div>
-				<div class="barre"></div>
-			</div>
-			<div id="colonne">
-				<div id="contentColonne">
-					<button onclick="capturePhoto();">Photo</button>
-					<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
-	
-					<img style="" id="image" src="http://cdn.livetvstatic.ru/img/teams/fullsize/94.gif" />
+						<!-- check poids -->
+						<label id="checkPoids">Même poids pour tous les produits</label>
+						<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+						
+						<!-- check DLC -->
+						<label id="checkDLC">Même DLC pour tous les produits</label>
+						<div id="infosDLCRef" class="center"><div><strong>></strong></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
 					
-					<button id="send">Envoyer</button>
+					</div>
+					<div class="clear"></div>
+					<div id="listePoids" class="tripleColonnes"></div>
+					<div class="clear"></div>
+					<label id="poidsTotal">Poids total : <div></div></label>
 				</div>
 			</div>
-		</div>	
+
+			<div class="clear"></div>
+			
+		</div>
+
+		<div id="scrollerColonne">
+			<div class="barre"></div>
+			<div class="barre"></div>
+			<div class="barre"></div>
+		</div>
+		<div id="colonne">
+			<div id="contentColonne">
+				<button onclick="capturePhoto();">Photo</button>
+				<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
+
+				<img style="" id="image" src="http://cdn.livetvstatic.ru/img/teams/fullsize/94.gif" />
+				
+				<button id="send">Envoyer</button>
+			</div>
+		</div>
 		
 	</body>
 </html>
