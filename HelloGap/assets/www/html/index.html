@@ -1,82 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	<meta charset="utf-8" />
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    
-    <title>Capture Photo</title>
-
-    <link type="text/css" href="../css/style.css" rel="stylesheet" rel="stylesheet" media="all" />
-    <link type="text/css" href="../css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" media="all" />
-
-    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/cordova.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/camera.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/email.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
-    <script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
+	<head>
+		<meta charset="utf-8" />
+	 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	   
+	   <title>Capture Photo</title>
 	
-  </head>
-  <body>
-  	<div id="chargement"><img id="img-loading" src="../img/ajax-loading.gif"/></div>
-  
-  	<!-- Page Menu -->
-  
-  	<div id="pageMenu"></div>
-  	
-  	<!-- Page formulaire -->
-  	
-  	<div id="pageFormulaire">
-	    <!-- Infomations client -->
-	    <label>Nom du client :</label>
-	    <input type="text" id="clientName"/>
-	    
-	    <!-- Infomations produit -->
-	    <div id="product">
-		    <label>Nom du produit - Quantité :</label>
-		    <div class="left large">
-		    	<input type="text" id="productName"/>
-		    </div>
-		    <div class="right small">
-		    	<input type="text" id="productQuantity" value="Quantité..." style="color:#999999;font-size:20px;font-style:italic;text-align:left;"/>
-		    </div>
-		    <div id="poidsContainer">
-			    <label>Poids des produits :</label>
-			    <div id="optionsPoids">
-			    	
-			    	<!-- check poids -->
-			    	<label id="checkPoids">Même poids pour tous les produits</label>
-			    	<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
-			    	
-			    	<!-- check DLC -->
-			    	<label id="checkDLC">Même DLC pour tous les produits</label>
-			    	<div id="infosDLCRef" class="center"><div><strong>></strong></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
-			    
-			    </div>
-			    <div class="clear"></div>
-			    <div id="listePoids" class="tripleColonnes"></div>
-			    <div class="clear"></div>
-			    <label id="poidsTotal">Poids total : <div></div></label>
-		    </div>
-	    </div>
-	    
-	    <div class="clear"></div>
-	    
-	    <button class="left" onclick="capturePhoto();">Prendre une photo</button>
-	    <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button>
-	    
-	    <img style="display:none;width:100%;height:auto;" id="image" src="" />
-	 	
-	 	<div class="clear"></div>
-	 	
-	    <button id="send">Envoyer</button><br>
-	 	
-	 	<br/>
-	 	<br/>
- 	
- 	</div>
- 	
-  </body>
+	   <link type="text/css" href="../css/style.css" rel="stylesheet" rel="stylesheet" media="all" />
+	   <link type="text/css" href="../css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" media="all" />
+	
+	   <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/cordova.js"></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/camera.js"></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/email.js"></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
+	   <script type="text/javascript" charset="utf-8" src="../js/menu.js" defer></script>
+
+	</head>
+	
+	<body>
+		<div id="chargement"><img id="img-loading" src="../img/ajax-loading.gif"/></div>
+
+		<!-- Header -->
+		<div id="header">
+			<h1 class="current" data-onglet="preparation">Préparation</h1>
+			<h1 data-onglet="stock">Etat des stocks</h1>
+			<h1 data-onglet="historique">Historique</h1>
+		</div>
+
+		<!-- Page Menu -->
+		<div id="pageMenu"></div>
+		
+		<div class="content" style="display:none" data-onglet="stock">
+			stock !!
+		</div>
+		
+		<div class="content" style="display:none" data-onglet="historique">
+			historique !!
+		</div>
+		
+		<div class="content" data-onglet="preparation">
+		
+			<!-- Infomations client -->
+			<label>Client :</label>
+			<input type="text" id="clientName"/>
+
+			<!-- Infomations produit -->
+			<div id="product">
+				<div class="left large">
+					<span>Nom du produit :</span>
+				</div>
+				<div class="right small">
+					<span style="float: right;">Quantité :</span>
+				</div>
+				<div class="left large">
+					<input type="text" id="productName"/>
+				</div>
+				<div class="right small">
+					<input type="text" id="productQuantity" style="text-align:right;" />
+				</div>
+				<div id="poidsContainer">
+					<label>Poids et DLC des produits :</label>
+					<div id="optionsPoids">
+						
+						<!-- check poids -->
+						<label id="checkPoids">Même poids pour tous les produits</label>
+						<div id="infosPoidsRef" class="center"><div><strong>></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+						
+						<!-- check DLC -->
+						<label id="checkDLC">Même DLC pour tous les produits</label>
+						<div id="infosDLCRef" class="center"><div><strong>></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
+					
+					</div>
+					<div class="clear"></div>
+					<div id="listePoids" class="tripleColonnes"></div>
+					<div class="clear"></div>
+					<label id="poidsTotal">Poids total : <div></div></label>
+				</div>
+			</div>
+
+			<div class="clear"></div>
+			
+		</div>
+
+		<div id="scrollerColonne">
+			<div class="barre"></div>
+			<div class="barre"></div>
+			<div class="barre"></div>
+		</div>
+		<div id="colonne">
+			<div id="contentColonne">
+				<button onclick="capturePhoto();">Photo</button>
+				<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
+
+				<img style="display:none" id="image" src="" />
+				
+				<button id="send">Envoyer</button>
+			</div>
+		</div>
+		
+	</body>
 </html>
