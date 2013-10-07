@@ -26,16 +26,20 @@ function onPhotoURISuccess(imageURI) {
 
   // Get image handle
   //
-  var image = document.getElementById('image');
-
+  var lienImage = $('a#image');
+  
   // Unhide image elements
   //
-  image.style.display = 'block';
+  lienImage.show();
 
+  // href
+  //
+  lienImage.attr("href",imageURI);
+  
   // Show the captured photo
   // The inline CSS rules are used to resize the image
   //
-  image.src = imageURI;
+  lienImage.find("img").attr("src",imageURI);
 
   window.resolveLocalFileSystemURI(imageURI, onResolveSuccess, fail);
 }

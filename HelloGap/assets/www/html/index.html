@@ -2,17 +2,19 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-	 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	   
-		<title>Capture Photo</title>
+		<meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	
+		<title>A2Dis</title>
 	
 		<link type="text/css" href="../css/style.css" rel="stylesheet" media="all" />
 		<link type="text/css" href="../css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" media="all" />
-		<link type="text/css" href="../css/jquery-ui.css" rel="stylesheet" media="all" />
+		<link type="text/css" href="../css/jquery-ui/jquery-ui.css" rel="stylesheet" media="all" />
+		<link type="text/css" href="../css/fancybox/jquery.fancybox.css" rel="stylesheet" media="all" />
 		<link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" media="all" />
-	
+		
 		<script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/jquery-ui.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/fancybox/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/cordova.js"></script>
@@ -71,11 +73,11 @@
 						
 						<!-- check poids -->
 						<label id="checkPoids">Même poids pour tous les produits</label>
-						<div id="infosPoidsRef" class="center"><div><strong>></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+						<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
 						
 						<!-- check DLC -->
 						<label id="checkDLC">Même DLC pour tous les produits</label>
-						<div id="infosDLCRef" class="center"><div><strong>></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
+						<div id="infosDLCRef" class="center"><div><strong>></strong></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
 					
 					</div>
 					<div class="clear"></div>
@@ -99,7 +101,7 @@
 				<button onclick="capturePhoto();">Photo</button>
 				<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
 
-				<img style="display:none" id="image" src="" />
+				<a style="display:none" href="" id="image" class="image"><img src="" /></a>
 				
 				<button id="send">Envoyer</button>
 			</div>

@@ -26,3 +26,12 @@ function applyDatePicker() {
 		});
 	});
 }
+
+/***
+ * 
+ * Permet d'afficher une image
+ * 
+ */
+$(".image").fancybox({
+	'titleShow'     : false
+});

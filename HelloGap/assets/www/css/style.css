@@ -121,7 +121,7 @@ body {
 	margin: 120px auto 0 auto;
 }
 
-#image {
+a#image img {
 	width: 100%;
 	margin-top: 5px;
 }
@@ -173,16 +173,6 @@ input[type="text"] {
 	-moz-transition: background .3s ease-in-out;
 	-ms-transition: background .3s ease-in-out;
 	-o-transition: background .3s ease-in-out;
-}
-
-#smallImage {
-	width:60px;
-	height:60px;
-	display:none;
-}
-
-#largeImage {
-	display:none;
 }
 
 .clear {
