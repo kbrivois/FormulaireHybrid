@@ -19,7 +19,7 @@ function applyDatePicker() {
         endYear: dateFin
     });
 	
-	// si clique sur le bouton "terminée" du datePicker, on quitte le focus du champs en cours
+	// si clique sur le bouton "terminÃ©e" du datePicker, on quitte le focus du champs en cours
 	$('.date').focus(function() {
 		$("span[class='dwbw dwb-s']").click(function() {
 			inputEnCours.blur();

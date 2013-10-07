@@ -2,7 +2,10 @@ html {
 	background: url("../img/fond.png") repeat;
 }
 body {
-	width: 1000px;
+	width: 95%;
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;;
 	margin: 20px auto 35px auto;
 	font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -19,7 +22,7 @@ body {
 	background: linear-gradient(to bottom, #009FE0, #018EC8) repeat scroll 0 0 #009FE0;
 	margin: auto;
 	text-align: center;
-	z-index: 100;
+	z-index: 102;
 }
 #header h1 {
 	width: 155px;
@@ -59,17 +62,15 @@ body {
 }
 
 #content {
-	width: 1000px;
+	width: 100%;
 	overflow: hidden;
-	margin-top: 75px;
-	position: relative;
+	margin-top: 120px;
 }
 
 /* PAGE FORMULAIRE */
 #pageFormulaire {
-	width: 770px;
-	position: relative;
-	float: left;
+	width: 99%;
+	margin: auto;
 }
 #pageFormulaire label, #pageFormulaire span {
 	display: block;
@@ -81,20 +82,43 @@ body {
 /* COLONNE */
 #colonne {
 	width: 200px;
-	float: right;
 	overflow: hidden;
-	position: relative;
-}
-#image {
-	width: 200px;
 	position: fixed;
-	margin-bottom: 15px;
-	display: block;
+	left: 0;
+	top: 0;
+	height: 100%;
+	background-color: rgb(150,150,150);
+	z-index: 100;
+	display: none;
+}
+
+#scrollerColonne {
+	position: fixed;
+	top: 60px;
+	left: 20px;
+	z-index: 101;
+}
+
+#scrollerColonne .barre{
+	width: 45px;
+	height: 8px;
+	background-color: rgb(100,100,100);
+	margin: 7px auto 7px auto;
+}
+
+#contentColonne {
+	width: 180px;
+	margin: 120px auto 0 auto;
+}
+
+#image {
+	width: 100%;
+	margin-top: 70px;
 }
 
 /* BOUTONS */
 button {
-	width: 200px;
+	width: 180px;
 	height: 50px;
 	font-size: 20px;
 	margin: auto;
@@ -107,14 +131,10 @@ button {
 	margin-bottom: 15px;
 }
 button#send {
-	width: 200px;
 	margin-top: 15px;
 	background: linear-gradient(to bottom, #009FE0, #018EC8) repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 1px solid #037BAC;
 }
-
-
-
 
 
 input[type="text"] {

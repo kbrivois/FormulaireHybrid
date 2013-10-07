@@ -15,6 +15,7 @@
 	<script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
 	<script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
+	<script type="text/javascript" charset="utf-8" src="../js/menu.js" defer></script>
 
 	</head>
 	
@@ -77,13 +78,20 @@
 				
 			</div>
 
+			<div id="scrollerColonne">
+				<div class="barre"></div>
+				<div class="barre"></div>
+				<div class="barre"></div>
+			</div>
 			<div id="colonne">
-				<button onclick="capturePhoto();">Photo</button>
-				<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
-
-				<img style="" id="image" src="http://cdn.livetvstatic.ru/img/teams/fullsize/94.gif" />
-				
-				<button id="send">Envoyer</button>
+				<div id="contentColonne">
+					<button onclick="capturePhoto();">Photo</button>
+					<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
+	
+					<img style="" id="image" src="http://cdn.livetvstatic.ru/img/teams/fullsize/94.gif" />
+					
+					<button id="send">Envoyer</button>
+				</div>
 			</div>
 		</div>	
 		
