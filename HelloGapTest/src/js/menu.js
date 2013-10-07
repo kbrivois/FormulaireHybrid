@@ -1,4 +1,30 @@
 var colonneIsVisible = false;
+var onglet = "";
+
+/**
+ * 
+ * Menu du haut
+ * 
+ */
+
+$("#header h1").click(function() {
+	$("#header h1").each(function() {
+		$(this).attr("class","");
+	});
+	$(this).attr("class","current");
+	onglet = $(this).data("onglet");
+	$(".content").each(function() {
+		$(this).hide();
+	});
+	$(".content[data-onglet='"+onglet+"']").show();
+});
+
+
+/**
+ * 
+ * Menu de gauche
+ * 
+ */
 
 $("#scrollerColonne").click(function() {
 	if(!colonneIsVisible) {
@@ -19,11 +45,4 @@ $("#scrollerColonne").click(function() {
 		});
 		colonneIsVisible = false;
 	}
-});
-
-$("#header h1").click(function() {
-	$("#header h1").each(function() {
-		$(this).attr("class","");
-	});
-	$(this).attr("class","current");
 });

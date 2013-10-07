@@ -64,14 +64,14 @@ body {
 	display: block;
 }
 
-#content {
+/* CONTENT */
+
+.content {
 	margin: 120px auto 0 auto;
 	width: 100%;
 }
 
-/* CONTENT */
-
-#content label, #content span {
+.content label, .content span {
 	display: block;
 	font-size: 25px;
 	color: rgb(100,100,100);

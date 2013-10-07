@@ -24,15 +24,23 @@
 
 		<!-- Header -->
 		<div id="header">
-			<h1 class="current">Préparation</h1>
-			<h1>Etat des stocks</h1>
-			<h1>Historique</h1>
+			<h1 class="current" data-onglet="preparation">Préparation</h1>
+			<h1 data-onglet="stock">Etat des stocks</h1>
+			<h1 data-onglet="historique">Historique</h1>
 		</div>
 
 		<!-- Page Menu -->
 		<div id="pageMenu"></div>
 		
-		<div id="content">
+		<div class="content" style="display:none" data-onglet="stock">
+			stock !!
+		</div>
+		
+		<div class="content" style="display:none" data-onglet="historique">
+			historique !!
+		</div>
+		
+		<div class="content" data-onglet="preparation">
 		
 			<!-- Infomations client -->
 			<label>Client :</label>
