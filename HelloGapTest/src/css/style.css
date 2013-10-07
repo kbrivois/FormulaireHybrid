@@ -33,16 +33,18 @@ body {
 }
 #header h1 {
 	width: 155px;
+	height: 25px;
 	padding: 12px;
 	color: #FFFFFF;
 	font-size: 18px;
 	font-weight: 400;
-	border-right: 1px white solid;
+	border-right: 1px #0080b5 solid;
 	display: inline-block;
 	cursor: pointer;
 }
 #header h1:first-child {
-	border-left: 1px white solid;
+	border-left: 1px #0080b5 solid;
+	border-right: none;
 }
 #header h1.current {
 	background: linear-gradient( #FFFFFF /*{c-bup-background-start}*/, #E6E6E6 /*{c-bup-background-end}*/);
@@ -52,7 +54,6 @@ body {
 	background: -ms-linear-gradient( #FFFFFF /*{c-bup-background-start}*/, #E6E6E6 /*{c-bup-background-end}*/);
 	color: #009FE0;
 	border: none;
-	height: 25px;
 }
 
 /* CHARGEMENT & IMAGE */
@@ -73,12 +74,10 @@ body {
 }
 
 /* CONTENT */
-
 .content {
 	margin: 120px auto 0 auto;
 	width: 100%;
 }
-
 .content label, .content span {
 	display: block;
 	font-size: 25px;
@@ -101,26 +100,22 @@ body {
 	box-shadow: 1px 1px 5px /*{global-box-shadow-size}*/ rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
 	overflow: auto;
 }
-
 #scrollerColonne {
 	position: fixed;
 	top: 60px;
 	left: 20px;
 	z-index: 101;
 }
-
 #scrollerColonne .barre{
 	width: 45px;
 	height: 8px;
 	background-color: rgb(100,100,100);
 	margin: 7px auto 7px auto;
 }
-
 #contentColonne {
 	width: 180px;
 	margin: 120px auto 0 auto;
 }
-
 a#image img {
 	width: 100%;
 	margin-top: 5px;

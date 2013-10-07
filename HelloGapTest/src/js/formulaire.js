@@ -80,35 +80,15 @@ document.addEventListener("showkeyboard", function() {
  * 
  */
 
-var availableTags = [
-  "ActionScript",
-  "AppleScript",
-  "Asp",
-  "BASIC",
-  "C",
-  "C++",
-  "Clojure",
-  "COBOL",
-  "ColdFusion",
-  "Erlang",
-  "Fortran",
-  "Groovy",
-  "Haskell",
-  "Java",
-  "JavaScript",
-  "Lisp",
-  "Perl",
-  "PHP",
-  "Python",
-  "Ruby",
-  "Scala",
-  "Scheme"
-];
-$( "#clientName" ).autocomplete({
-	source: availableTags,
-	minLength: 1
-});
+var sourceClient = valeurUrl('http://www.aymeric-auberton.fr/data.php');
+console.log(sourceClient);
+var arrayClient = sourceClient.split('$');
 
+$( "#clientName" ).autocomplete({
+	source: arrayClient,
+	minLength: 1
+}); 
+	
 /**
  * 
  * clique sur "Même poids pour tous les produits" ou "Même DLC pour tous les produits"

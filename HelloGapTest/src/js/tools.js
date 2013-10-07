@@ -35,3 +35,21 @@ function applyDatePicker() {
 $(".image").fancybox({
 	'titleShow'     : false
 });
+
+/***
+ * 
+ * La fonction retourne la valeur que retourne la page appelée
+ * 
+ */
+var valeurUrl = function(url) {
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.open('GET', url, false);
+	xmlhttp.send(null);
+	if(xmlhttp.status == 200)
+		return xmlhttp.responseText;
+}
