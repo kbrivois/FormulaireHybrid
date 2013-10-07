@@ -21,7 +21,7 @@ addFocus();
 
 function addFocus() {
 	
-	// on retire les évènements des champs input dans la partie "#listePoids .poids"
+	// on retire les événements des champs input dans la partie "#listePoids .poids"
 	$("#listePoids .poids input").off();
 	
 	$("#listePoids .poids input").focus(function() {
@@ -73,6 +73,42 @@ document.addEventListener("showkeyboard", function() {
 	$("#send").hide();
 }, false);
 
+
+/**
+ * 
+ * autocomplete
+ * 
+ */
+
+var availableTags = [
+  "ActionScript",
+  "AppleScript",
+  "Asp",
+  "BASIC",
+  "C",
+  "C++",
+  "Clojure",
+  "COBOL",
+  "ColdFusion",
+  "Erlang",
+  "Fortran",
+  "Groovy",
+  "Haskell",
+  "Java",
+  "JavaScript",
+  "Lisp",
+  "Perl",
+  "PHP",
+  "Python",
+  "Ruby",
+  "Scala",
+  "Scheme"
+];
+$( "#clientName" ).autocomplete({
+	source: availableTags,
+	minLength: 1
+});
+
 /**
  * 
  * clique sur "Même poids pour tous les produits" ou "Même DLC pour tous les produits"
@@ -103,7 +139,7 @@ function actionOptionsProduits(div) {
 	}
 	// si on s'intéresse au menu "même DLC"
 	else if(div == "checkDLC") {
-		// si checkboxPoids n'était pas sélectionné
+		// si checkDLC n'était pas sélectionné
 		if(!checkDLC) {
 			// on le sélectionne
 			$("#infosDLCRef").slideDown('fast');
@@ -113,7 +149,7 @@ function actionOptionsProduits(div) {
 			$("#"+div).css("background", "rgb(150,150,250)");
 			$("#"+div).css("color", "white");
 		}
-		// si checkboxPoids était sélectionné
+		// si checkboxDLC était sélectionné
 		else {
 			// on le désélectionne
 			$("#infosDLCRef").slideUp('fast');
