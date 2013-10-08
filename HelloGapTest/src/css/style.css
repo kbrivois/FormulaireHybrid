@@ -12,6 +12,55 @@ body {
     font-weight: 300;
 }
 
+/* GENERAL */
+.clear {
+	clear: both;
+}
+
+.left {
+	width: 48.5% !important;
+	float: left !important;
+}
+
+.right {
+	width: 48.5% !important;
+	float: right !important;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.large {
+	width: 68.5% !important;
+}
+
+.small {
+	width: 28.5% !important;
+}
+
+.small input {
+	text-align: right;
+}
+
+.tripleColonnes .left {
+	float: left;
+}
+
+.tripleColonnes .center {
+	float: left;
+}
+
+.tripleColonnes .right {
+	float: right;
+}
+
+.labelLeft {
+	float: left;
+	width: 350px;
+}
+
 /* HEADER */
 #header {
 	width: 100%;
@@ -38,13 +87,14 @@ body {
 	color: #FFFFFF;
 	font-size: 18px;
 	font-weight: 400;
+	border-left: 1px #0080b5 solid;
 	border-right: 1px #0080b5 solid;
 	display: inline-block;
 	cursor: pointer;
+	margin-left: -5px;
 }
 #header h1:first-child {
-	border-left: 1px #0080b5 solid;
-	border-right: none;
+	margin-left: 0;
 }
 #header h1.current {
 	background: linear-gradient( #FFFFFF /*{c-bup-background-start}*/, #E6E6E6 /*{c-bup-background-end}*/);
@@ -139,7 +189,7 @@ button {
 	position: relative;
 	margin-bottom: 15px;
 }
-button#send {
+button#send, button#sendStock {
 	margin-top: 15px;
     border: 1px solid #037BAC;
 	background: linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/);
@@ -170,52 +220,7 @@ input[type="text"] {
 	-o-transition: background .3s ease-in-out;
 }
 
-.clear {
-	clear: both;
-}
-
-.left {
-	width: 48.5% !important;
-	float: left !important;
-}
-
-.right {
-	width: 48.5% !important;
-	float: right !important;
-}
-
-.center {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.large {
-	width: 68.5% !important;
-}
-
-.small {
-	width: 28.5% !important;
-}
-
-.small input {
-	text-align: right;
-}
-
-.tripleColonnes .left {
-	float: left;
-}
-
-.tripleColonnes .center {
-	float: left;
-}
-
-.tripleColonnes .right {
-	float: right;
-}
-
-
 /* POIDS */
-
 #poidsContainer {
 	display: none;
 }
@@ -302,6 +307,14 @@ input[type="text"] {
 	font-size: 20px;
 	font-weight: bolder;
 	display: inline-block;
+}
+
+/* STOCK */
+#stockQuantity {
+	width: 100px;
+	margin: -9px 0 30px 0;
+	display: inline-block;
+	text-align:right;
 }
 
 /* RESET */

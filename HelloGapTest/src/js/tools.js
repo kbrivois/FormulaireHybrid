@@ -53,3 +53,16 @@ var valeurUrl = function(url) {
 	if(xmlhttp.status == 200)
 		return xmlhttp.responseText;
 }
+
+/***
+ * 
+ * Permet d'échapper les caractères spéciaux
+ * 
+ */
+function addslashes(str) {
+	str=str.replace(/\'/g,'\\\'');
+	str=str.replace(/\"/g,'\\"');
+	str=str.replace(/\\/g,'\\\\');
+	str=str.replace(/\0/g,'\\0');
+	return str;
+}
