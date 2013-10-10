@@ -8,15 +8,25 @@ var onglet = "";
  */
 
 $("#header h1").click(function() {
+	// on met en surbrillance le header choisi
 	$("#header h1").each(function() {
 		$(this).attr("class","");
 	});
 	$(this).attr("class","current");
+	
+	// on fait apparaître le content choisi
+	$(".content").hide();
 	onglet = $(this).data("onglet");
-	$(".content").each(function() {
-		$(this).hide();
-	});
-	$(".content[data-onglet='"+onglet+"']").show();
+	$("#"+onglet).show();
+	
+	// on fait apparaître le menu colonne correspondant
+	$(".typeColonne").hide();
+	if(onglet == "stock") {
+		$("#stockColonne").show();
+	}
+	else if(onglet == "preparation"){
+		$("#preparationColonne").show();
+	}
 });
 
 

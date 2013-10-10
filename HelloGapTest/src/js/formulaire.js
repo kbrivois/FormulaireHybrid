@@ -19,7 +19,7 @@ for(var i=0; i<arrayProduitsTemp.length; i++) {
 }
 //clients
 var sourceClient = valeurUrl('http://www.aymeric-auberton.fr/data.php');
-var arrayClient = sourceClient.split('$');
+var arrayClient = sourceClient.split('%');
 
 
 $("input[type='text']").focus(function() {
@@ -89,16 +89,8 @@ document.addEventListener("showkeyboard", function() {
  * autocomplete
  * 
  */
-
-$( "#clientName" ).autocomplete({
-	source: arrayClient,
-	minLength: 1
-}); 
-
-$( "#productName" ).autocomplete({
-	source: arrayProduits,
-	minLength: 1
-}); 
+autoComplete($("#clientName"), arrayClient);
+autoComplete($("#productName"), arrayProduits);
 
 /**
  * 

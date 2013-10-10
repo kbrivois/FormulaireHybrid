@@ -56,6 +56,22 @@ var valeurUrl = function(url) {
 
 /***
  * 
+ * Autocomplete
+ * 
+ */
+function autoComplete(elem, src) {
+	elem.autocomplete({
+		source: function(request, response) {
+	        var results = $.ui.autocomplete.filter(src, request.term);
+	        // on limit le résultat à 5 éléments
+	        response(results.slice(0, 5));
+	    },
+		minLength: 1
+	}); 
+}
+
+/***
+ * 
  * Permet d'échapper les caractères spéciaux
  * 
  */

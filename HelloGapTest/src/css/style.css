@@ -1,6 +1,7 @@
 html {
 	width: 100%;
 	background: url("../img/fond.png") repeat;
+	overflow-x: hidden;
 }
 body {
 	width: 95%;
@@ -315,6 +316,75 @@ input[type="text"] {
 	margin: -9px 0 30px 0;
 	display: inline-block;
 	text-align:right;
+}
+
+.lineProduct {
+	width: 100%;
+	display: inline-block;
+}
+
+input.product {
+	padding-left: 17%;
+	width: 82%;
+}
+
+.lineProductHidden {
+	overflow: hidden;
+}
+
+.lineProductHidden .swiper {
+	border: none;
+	position: relative;
+	margin-right: -10%;
+}
+
+.blocHidden {
+	height: 80px;
+	width: 0;
+	margin-top: -76px;
+	float: right;
+}
+
+.blocHidden div {
+	width: 40px;
+	height: 80px;
+	background: url("../img/fond.png") repeat;
+	-moz-box-shadow: -11px 1px 8px -6px rgba(0,0,0,0.15),transparent 0 0 0;
+	-webkit-box-shadow: -11px 1px 8px -6px rgba(0,0,0,0.15),transparent 0 0 0;
+	box-shadow: -11px 1px 8px -6px rgba(0,0,0,0.15),transparent 0 0 0;
+	position: relative;
+}
+
+.inputsHidden {
+	width: 100%;
+	height: 72px;
+	margin-left: 94%;
+}
+
+.swiper {
+	width: 10%;
+	max-width: 90px;
+	height: 38px;
+	border-right: 1px solid rgb(190,190,190);
+	float: left;
+	position: absolute;
+	margin-top: 18px;
+	margin-left: 1px;
+	border-radius: 3px 0 0 3px;
+}
+
+.swiper div {
+	width: 5px;
+	height: 5px;
+	background-color: rgb(170,170,170);
+	float: right;
+	margin: 6px 13px 0px 0;
+	clear: both;
+}
+
+/* JQUERY AUTOCOMPLETE */
+.ui-menu .ui-menu-item a {
+	font-size: 26px;
 }
 
 /* RESET */

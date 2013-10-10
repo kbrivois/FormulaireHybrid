@@ -16,17 +16,20 @@
 		<script type="text/javascript" charset="utf-8" src="../js/jquery-ui.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/fancybox/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/jquery.touchSwipe.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/cordova.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/camera.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/email.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
+		<script type="text/javascript" charset="utf-8" src="../js/stock.js" defer></script>
 		<script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
 		<script type="text/javascript" charset="utf-8" src="../js/menu.js" defer></script>
 
 	</head>
 	
 	<body>
+		<div id="ttt"></div>
 		<div id="chargement"><img id="img-loading" src="../img/ajax-loading.gif"/></div>
 
 		<!-- Header -->
@@ -39,15 +42,44 @@
 		<!-- Page Menu -->
 		<div id="pageMenu"></div>
 		
-		<div class="content" style="display:none" data-onglet="stock">
-			stock !!
+		<div class="content" style="display:none" id="stock">
+			
+			<div class="lineProduct"> 
+					<div class="left large"> 
+					<span>Nom du produit :</span> 
+				</div> 
+				<div class="right small"> 
+					<span style="float: right;">Quantité :</span> 
+				</div> 
+				<div class="clear"></div> 
+				<div class="swiper"> 
+					<div></div> 
+					<div></div> 
+					<div></div> 
+				</div> 
+				<div class="left large"> 
+					<input type="text" class="product"/> 
+				</div> 
+				<div class="right small"> 
+					<input type="text" class="quantity" style="text-align:right;" /> 
+				</div> 
+			</div>
+			
+			<div class="lineProductHidden">
+				<div class="inputsHidden">
+					<div class="swiper"></div><div class="left large"><input type="text" class="product"></div><div class="right small"><input type="text" class="quantity"></div>
+				</div>
+				<div class="blocHidden">
+					<div></div>
+				</div>
+			</div>
 		</div>
 		
-		<div class="content" style="display:none" data-onglet="historique">
+		<div class="content" style="display:none" id="historique">
 			historique !!
 		</div>
 		
-		<div class="content" data-onglet="preparation">
+		<div class="content" id="preparation">
 		
 			<!-- Infomations client -->
 			<label>Client :</label>
@@ -97,13 +129,23 @@
 			<div class="barre"></div>
 		</div>
 		<div id="colonne">
-			<div id="contentColonne">
-				<button onclick="capturePhoto();">Photo</button>
-				<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
-
-				<a style="display:none" href="" id="image" class="image"><img src="" /></a>
-				
-				<button id="send">Envoyer</button>
+			<!-- Colonne préparation -->
+			<div class="typeColonne" id="preparationColonne">
+				<div id="contentColonne">
+					<button onclick="capturePhoto();">Photo</button>
+					<!-- <button class="right" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choisir une photo...</button> -->
+	
+					<a style="display:none" href="" id="image" class="image"><img src="" /></a>
+					
+					<button id="send">Envoyer</button>
+				</div>
+			</div>
+			
+			<!-- Colonne stock -->
+			<div class="typeColonne" id="stockColonne" style="display:none">
+				<div id="contentColonne">
+					<button id="sendStock">Envoyer</button>
+				</div>
 			</div>
 		</div>
 		

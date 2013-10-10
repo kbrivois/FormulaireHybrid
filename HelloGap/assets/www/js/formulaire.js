@@ -10,6 +10,16 @@ var checkPoids = false;
 var checkDLC = false;
 var poidsTotal = 0;
 var nbProduits = 0;
+//produits
+var sourceProduits = valeurUrl('http://www.aymeric-auberton.fr/getProducts.php');
+var arrayProduitsTemp = $.parseJSON(sourceProduits);
+var arrayProduits = new Array();
+for(var i=0; i<arrayProduitsTemp.length; i++) {
+	arrayProduits.push(arrayProduitsTemp[i].nom); 
+}
+//clients
+var sourceClient = valeurUrl('http://www.aymeric-auberton.fr/data.php');
+var arrayClient = sourceClient.split('%');
 
 
 $("input[type='text']").focus(function() {
@@ -34,14 +44,14 @@ function addFocus() {
 	$("#listePoids .poids .inputPoids").focusout(function(){
 		if($.isNumeric($(this).val()) && ($(this).val() % 1 == 0)) {
 			// on ajoute la nouvelle
-			poidsTotal += parseInt($(this).val());
+			poidsTotal += parseFloat($(this).val());
 		}
 		else {
 			$(this).val("");
 		}
 		// on retire l'ancienne valeur
 		if($.isNumeric(valeurInFocus))
-			poidsTotal -= parseInt(valeurInFocus);
+			poidsTotal -= parseFloat(valeurInFocus);
 		
 		// si la checkbox "même poids" était cochée et que le poids rentré dans le input est différent du poids ref
 		if(checkPoids && $(this).val() != $("#poidsRef").val()) {
@@ -73,6 +83,14 @@ document.addEventListener("showkeyboard", function() {
 	$("#send").hide();
 }, false);
 
+
+/**
+ * 
+ * autocomplete
+ * 
+ */
+autoComplete($("#clientName"), arrayClient);
+autoComplete($("#productName"), arrayProduits);
 
 /**
  * 
@@ -138,7 +156,7 @@ $("#poidsRef").focusout(function(){
 	// si le poids saisi est un nombre et qu'il est entier
 	if($.isNumeric($(this).val()) && ($(this).val() % 1 == 0)) {
 		poidsTotal = 0;
-		var poidsSaisi = parseInt($(this).val());
+		var poidsSaisi = parseFloat($(this).val());
 		$("#product #listePoids .poids .inputPoids").each(function(index) {
 			$(this).val(poidsSaisi);
 		});
@@ -176,7 +194,7 @@ $("#productQuantity").focus(function(){
 
 $("#productQuantity").focusout(function(){
 	
-	var quantiteSaisie = parseInt($(this).val());
+	var quantiteSaisie = parseFloat($(this).val());
 	
 	if(quantiteSaisie == 0)
 		$("#poidsContainer").hide();
@@ -188,7 +206,7 @@ $("#productQuantity").focusout(function(){
 		// s'il aucun nombre de produit n'avait été saisi
 		if(nbProduits == 0) {
 			$("#poidsContainer").hide();
-			$(this).val("Quantité...");
+			$(this).val("Quantit�...");
 			$(this).attr("style","color:#999999;font-size:20px;font-style:italic;text-align:left;");
 		}
 		else {
@@ -246,7 +264,7 @@ $("#productQuantity").focusout(function(){
 				// sinon, on incrémente le poids total
 				else {
 					if($.isNumeric($(this).find("input").val()))
-						poidsTotal += parseInt($(this).find("input").val());
+						poidsTotal += parseFloat($(this).find("input").val());
 				}
 			});
 			$("#poidsTotal div").html(poidsTotal+" Kg");

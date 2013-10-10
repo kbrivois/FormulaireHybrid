@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
-
-	<title>A2Dis</title>
-
-	<link type="text/css" href="../css/style.css" rel="stylesheet" media="all" />
-	<link type="text/css" href="../css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" media="all" />
-	<link type="text/css" href="../css/jquery-ui/jquery-ui.css" rel="stylesheet" media="all" />
-	<link type="text/css" href="../css/fancybox/jquery.fancybox.css" rel="stylesheet" media="all" />
-	<link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" media="all" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
 	
-	<script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/jquery-ui.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/fancybox/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
-	<script type="text/javascript" charset="utf-8" src="../js/stock.js" defer></script>
-	<script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
-	<script type="text/javascript" charset="utf-8" src="../js/menu.js" defer></script>
-
+		<title>A2Dis</title>
+	
+		<link type="text/css" href="../css/style.css" rel="stylesheet" media="all" />
+		<link type="text/css" href="../css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" media="all" />
+		<link type="text/css" href="../css/jquery-ui/jquery-ui.css" rel="stylesheet" media="all" />
+		<link type="text/css" href="../css/fancybox/jquery.fancybox.css" rel="stylesheet" media="all" />
+		<link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" media="all" />
+		
+		<script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/jquery-ui.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/fancybox/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/jquery.touchSwipe.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
+		<script type="text/javascript" charset="utf-8" src="../js/stock.js" defer></script>
+		<script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
+		<script type="text/javascript" charset="utf-8" src="../js/menu.js" defer></script>
 	</head>
 	
 	<body>
@@ -40,29 +40,35 @@
 		
 		<div class="content" style="display:none" id="stock">
 			
-			<!-- Nombre de produits en stock -->
-			<label class="labelLeft">Nombre de produits :</label>
-			<input type="text" id="stockQuantity"/>
+			<div class="lineProduct"> 
+					<div class="left large"> 
+					<span>Nom du produit :</span> 
+				</div> 
+				<div class="right small"> 
+					<span style="float: right;">Quantité :</span> 
+				</div> 
+				<div class="clear"></div> 
+				<div class="swiper"> 
+					<div></div> 
+					<div></div> 
+					<div></div> 
+				</div> 
+				<div class="left large"> 
+					<input type="text" class="product"/> 
+				</div> 
+				<div class="right small"> 
+					<input type="text" class="quantity" style="text-align:right;" /> 
+				</div> 
+			</div>
 			
-			<div class="clear"></div>
-			
-			<!--
-			<div class="lineProduct">
-				<div class="left large">
-					<span>Nom du produit :</span>
+			<div class="lineProductHidden">
+				<div class="inputsHidden">
+					<div class="swiper"></div><div class="left large"><input type="text" class="product"></div><div class="right small"><input type="text" class="quantity"></div>
 				</div>
-				<div class="right small">
-					<span style="float: right;">Quantité :</span>
-				</div>
-				<div class="left large">
-					<input type="text" class="product"/>
-				</div>
-				<div class="right small">
-					<input type="text" class="quantity" style="text-align:right;" />
+				<div class="blocHidden">
+					<div></div>
 				</div>
 			</div>
-			-->
-
 		</div>
 		
 		<div class="content" style="display:none" id="historique">
