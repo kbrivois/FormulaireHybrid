@@ -4,7 +4,7 @@ cordova.addConstructor(function() {
     cordova.addPlugin("emailcomposer", new EmailComposer());
 });
 */
-EmailComposer.prototype.send = function (message,attachement){
+EmailComposer.prototype.send = function (message,attachement,subject){
 console.log("Calling the send message");
 cordova.exec(
 	function(){ 
@@ -18,7 +18,7 @@ cordova.exec(
 	}, 
     'EmailComposer', 
     'sendEmail', 
-    [message,attachement]);
+    [message,attachement,subject]);
 }
 function sendFeedback(){
     window.EmailComposer.prototype.send("My message body");

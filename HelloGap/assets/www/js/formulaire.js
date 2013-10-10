@@ -331,6 +331,7 @@ $("#send").click(function(){
 	else {
 		$("#chargement").show("medium");
 
+		var subject = "Préparation | " + $("#clientName").val();
 		var bodyMail = "";
 
 		bodyMail += "<div style='font-family:sans-serif'>";
@@ -359,6 +360,6 @@ $("#send").click(function(){
 		}
 		bodyMail += "</div>";
 		
-		window.EmailComposer.prototype.send(bodyMail, url);
+		window.EmailComposer.prototype.send(bodyMail, url, subject);
 	}
 });
