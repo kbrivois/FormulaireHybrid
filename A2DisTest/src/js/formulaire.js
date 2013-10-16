@@ -3,86 +3,7 @@
  * Focus sur les champs
  * 
  */
-
-var inputEnCours = null;
-var valeurInFocus = null;
-var checkPoids = false;
-var checkDLC = false;
-var poidsTotal = 0;
-var nbProduits = 0;
-//produits
-var sourceProduits = valeurUrl('http://www.aymeric-auberton.fr/getProducts.php');
-var arrayProduitsTemp = $.parseJSON(sourceProduits);
-var arrayProduits = new Array();
-for(var i=0; i<arrayProduitsTemp.length; i++) {
-	arrayProduits.push(arrayProduitsTemp[i].nom); 
-}
-//clients
-var sourceClient = valeurUrl('http://www.aymeric-auberton.fr/data.php');
-var arrayClient = sourceClient.split('%');
-
-
-$("input[type='text']").focus(function() {
-	inputEnCours = $(this);
-	valeurInFocus = $(this).val();
-});
-
 addFocus();
-
-function addFocus() {
-	
-	// on retire les événements des champs input dans la partie "#listePoids .poids"
-	$("#listePoids .poids input").off();
-	
-	$("#listePoids .poids input").focus(function() {
-		inputEnCours = $(this);
-		valeurInFocus = $(this).val();
-	});
-	
-	// Poids total
-	// au focusout d'un inputPoids dans un div .poids
-	$("#listePoids .poids .inputPoids").focusout(function(){
-		if($.isNumeric($(this).val()) && ($(this).val() % 1 == 0)) {
-			// on ajoute la nouvelle
-			poidsTotal += parseFloat($(this).val());
-		}
-		else {
-			$(this).val("");
-		}
-		// on retire l'ancienne valeur
-		if($.isNumeric(valeurInFocus))
-			poidsTotal -= parseFloat(valeurInFocus);
-		
-		// si la checkbox "même poids" était cochée et que le poids rentré dans le input est différent du poids ref
-		if(checkPoids && $(this).val() != $("#poidsRef").val()) {
-			actionOptionsProduits("checkPoids");
-		}
-		
-		$("#poidsTotal div").html(poidsTotal+" Kg");
-	});
-	
-	// au focusout d'un inputDLC dans un div .poids
-	$("#listePoids .poids .inputDLC").focusout(function(){
-		// si la checkbox "même DLC" était cochée et que la DLC rentrée dans le input est différente de la DLC ref
-		if(checkDLC && $(this).val() != $("#DLCRef").val()) {
-			actionOptionsProduits("checkDLC");
-		}
-	});
-	
-	applyDatePicker();
-}
-
-//si le clavier virtuel disparaît, on fait perdre le focus de l'input.
-document.addEventListener("hidekeyboard", function() {
-	inputEnCours.blur();
-	$("#send").show();
-}, false);
-
-//si le clavier virtuel apparaît, on fait disparaître le bouton "envoyer"
-document.addEventListener("showkeyboard", function() {
-	$("#send").hide();
-}, false);
-
 
 /**
  * 
@@ -104,17 +25,20 @@ function actionOptionsProduits(div) {
 		// si checkboxPoids n'était pas sélectionné
 		if(!checkPoids) {
 			// on le sélectionne
-			$("#infosPoidsRef").slideDown('fast');
+			$("#infosPoidsRef").show();
 			$("#"+div).css("box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
 			$("#"+div).css("-webkit-box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
-			$("#"+div).css("background", "rgb(150,150,250)");
+			$("#"+div).css("background", "linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/");
+			$("#"+div).css("background", "-moz-linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/");
+			$("#"+div).css("background", "-webkit-linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/)");
+			$("#"+div).css("background", "-ms-linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/");
 			$("#"+div).css("color", "white");
 			checkPoids = true;
 		}
 		// si checkboxPoids était sélectionné
 		else {
 			// on le désélectionne
-			$("#infosPoidsRef").slideUp('fast');
+			$("#infosPoidsRef").hide();
 			$("#poidsRef").val("");
 			$("#"+div).attr("style", "");
 			checkPoids = false;
@@ -125,17 +49,21 @@ function actionOptionsProduits(div) {
 		// si checkDLC n'était pas sélectionné
 		if(!checkDLC) {
 			// on le sélectionne
-			$("#infosDLCRef").slideDown('fast');
+			$("#infosDLCRef").show();
 			checkDLC = true;
 			$("#"+div).css("box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
 			$("#"+div).css("-webkit-box-shadow", "inset 0px 1px 4px rgba(0,0,0,.3)");
 			$("#"+div).css("background", "rgb(150,150,250)");
+			$("#"+div).css("background", "linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/");
+			$("#"+div).css("background", "-moz-linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/");
+			$("#"+div).css("background", "-webkit-linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/)");
+			$("#"+div).css("background", "-ms-linear-gradient( #009FE0 /*{c-bup-background-start}*/, #018EC8 /*{c-bup-background-end}*/");
 			$("#"+div).css("color", "white");
 		}
 		// si checkboxDLC était sélectionné
 		else {
 			// on le désélectionne
-			$("#infosDLCRef").slideUp('fast');
+			$("#infosDLCRef").hide();
 			$("#DLCRef").val("");
 			checkDLC = false;
 			$("#"+div).attr("style", "");
@@ -161,7 +89,7 @@ $("#poidsRef").focusout(function(){
 			$(this).val(poidsSaisi);
 		});
 		poidsTotal += poidsSaisi * nbProduits;
-		$("#poidsTotal div").html(poidsTotal+" Kg");
+		$("#poidsTotal div").html( Math.round((poidsTotal/1000)*100)/100+" Kg");
 	}
 	else {
 		$(this).val("");
@@ -174,6 +102,7 @@ $("#DLCRef").focusout(function(){
 	$("#product #listePoids .poids .inputDLC").each(function(index) {
 		$(this).val(dateSaisie);
 	});
+	calculDLC();
 });
 
 /**
@@ -226,7 +155,7 @@ $("#productQuantity").focusout(function(){
 															"<input class='inputPoids' type='text'/>" +
 															"<input class='inputDLC date' type='text'/>" +
 														"</div>"+
-														"<div><i>Kg</i></div>" +
+														"<div><i>g</i></div>" +
 														"<div><i>DLC</i></div>" +
 													"</div>");
 				else if(i%3 == 1)
@@ -236,7 +165,7 @@ $("#productQuantity").focusout(function(){
 															"<input class='inputPoids' type='text'/>" +
 															"<input class='inputDLC date' type='text'/>" +
 														"</div>"+
-														"<div><i>Kg</i></div>" +
+														"<div><i>g</i></div>" +
 														"<div><i>DLC</i></div>" +
 													"</div>");
 				else if(i%3 == 2)
@@ -246,7 +175,7 @@ $("#productQuantity").focusout(function(){
 															"<input class='inputPoids' type='text'/>" +
 															"<input class='inputDLC date' type='text'/>" +
 														"</div>"+
-														"<div><i>Kg</i></div>" +
+														"<div><i>g</i></div>" +
 														"<div><i>DLC</i></div>" +
 													"</div>" +
 													"<div class='clear'></div>");
@@ -267,7 +196,7 @@ $("#productQuantity").focusout(function(){
 						poidsTotal += parseFloat($(this).find("input").val());
 				}
 			});
-			$("#poidsTotal div").html(poidsTotal+" Kg");
+			$("#poidsTotal div").html( Math.round((poidsTotal/1000)*100)/100+" Kg");
 		}
 		// s'il y en a plus
 		else if(quantiteSaisie > nbProduits) {
@@ -280,7 +209,7 @@ $("#productQuantity").focusout(function(){
 																"<input class='inputPoids' type='text'/>" +
 																"<input class='inputDLC date' type='text'/>" +
 															"</div>"+
-															"<div><i>Kg</i></div>" +
+															"<div><i>g</i></div>" +
 															"<div><i>DLC</i></div>" +
 														"</div>");
 					else if(i%3 == 1)
@@ -290,7 +219,7 @@ $("#productQuantity").focusout(function(){
 																"<input class='inputPoids' type='text'/>" +
 																"<input class='inputDLC date' type='text'/>" +
 															"</div>"+
-															"<div><i>Kg</i></div>" +
+															"<div><i>g</i></div>" +
 															"<div><i>DLC</i></div>" +
 														"</div>");
 					else if(i%3 == 2)
@@ -300,7 +229,7 @@ $("#productQuantity").focusout(function(){
 																"<input class='inputPoids' type='text'/>" +
 																"<input class='inputDLC date' type='text'/>" +
 															"</div>"+
-															"<div><i>Kg</i></div>" +
+															"<div><i>g</i></div>" +
 															"<div><i>DLC</i></div>" +
 														"</div>" +
 														"<div class='clear'></div>");
@@ -315,50 +244,113 @@ $("#productQuantity").focusout(function(){
 	addFocus();
 });
 
+/**
+ * 
+ * Calcul du la plus grande et plus petite DLC
+ * 
+ */
+function calculDLC() {
+	var arrayDates = new Array();
+	$("#preparation .inputDLC").each(function() {
+		if($(this).val() != "") {
+			var date = $(this).val().split("/");
+			date = date[2]+"-"+date[1]+"-"+date[0];
+			date = new Date(date);
+			arrayDates.push(date);
+		}
+	});
+	
+	if(arrayDates.length != 0) {
+		var sorted = arrayDates.sort(sortDates);
+		
+		// min date
+		var mois1 = sorted[0].getMonth()+1;
+		if(mois1 < 10) { 
+			mois1 = "0"+mois1; 
+		}
+		minDate = sorted[0].getDate()+"/"+mois1+"/"+sorted[0].getFullYear();
+		
+		// max date
+		var mois2 = sorted[sorted.length-1].getMonth()+1;
+		if(mois2 < 10) { 
+			mois2 = "0"+mois2; 
+		}
+		maxDate = sorted[sorted.length-1].getDate()+"/"+mois2+"/"+sorted[sorted.length-1].getFullYear();
+		
+		$("#DLCTotale").html("DLC de<br/><div>"+minDate+"</div><br/>à<br/><div>"+maxDate+"</div>");
+	}
+}
+
+function sortDates(a, b){
+    return a.getTime() - b.getTime();
+}
 
 /**
  * 
  * Envoi du formulaire
  * 
  */
-
 $("#send").click(function(){
-
-	// s'il n'y pas de photo
-	if(url == "" || url == null) {
-		alert("Il faut prendre une photo !")
+	$("#chargement").show("medium");
+    var subject = "Préparation | " + $("#clientName").val();
+	
+	// enregistrement des produits en base
+	var arrayProduitsTemp = new Array();
+	
+	if($("#productName").val() != "") {
+		arrayProduitsTemp.push($("#productName").val());
 	}
-	else {
-		$("#chargement").show("medium");
+	
+	postUrl(arrayProduitsTemp, sourceProduitsAdd);
 
-		var bodyMail = "";
+	var bodyMail = "";
 
-		bodyMail += "<div style='font-family:sans-serif'>";
-		bodyMail += "<div style='width:150px;float:left'><strong>Client : </strong></div><div style='float:left'>"+$("#clientName").val()+"</div><br/>";
-		bodyMail += "<div style='clear:both'></div>";
-		bodyMail += "<div style='width:150px;float:left;'><strong>Produit : </strong></div><div style='float:left'>"+$("#productName").val()+"</div>";
-		// si une quantité a été saisie
-		if($("#productQuantity").val() != "" && $("#productQuantity").val() != 0) {
-			bodyMail += "<div style='width:150px;float:left;margin-left:20px'><strong>x "+$("#productQuantity").val()+" = "+poidsTotal+" Kg</strong></div><br/>";
-			bodyMail += "<table style='border-collapse:collapse;margin-top:20px;float:left;border:1px solid black'><tbody>";
-			$("#product #listePoids .poids").each(function(index) {
-				if(index == 0) {
-					bodyMail += "<tr>";
-				}
-				else if(index % 3 == 0) {
-					bodyMail += "</tr>";
-					bodyMail += "<tr>";
-				}
-				bodyMail += "<td style='height:50px;width:120px;text-align:center;border:1px solid black'>"+
-								(index+1)+" = <strong>"+$(this).find(".inputPoids").val()+" Kg</strong>" +
-								"<br/>" +
-								"<strong>"+$(this).find(".inputDLC").val()+"</strong>" +
-							"</td>";
-			});
-			bodyMail += "</tr>";
-		}
-		bodyMail += "</div>";
+	bodyMail += "<h1 style='width: 530px; background: #DDE2E6; font-family: Verdana,sans-serif; font-size: 22px; text-transform: uppercase; padding: 10px;'>"+$("#clientName").val()+"</h1>";
+	bodyMail += "<h2 style='font-family: Verdana,sans-serif; font-size: 16px;'>"+$("#productName").val()+"</h2>";
+	
+	// si une quantité a été saisie
+	if($("#productQuantity").val() != "" && $("#productQuantity").val() != 0) {
+		bodyMail += "<table style='width: 550px; font-family: Verdana,sans-serif; font-size: 12px; color: #374953;'><tbody>";
+
+		var arrayEntetesCellules = new Array();
+		var arrayContenuCellules = new Array();
+		var ligneTableau = 0;
 		
-		window.EmailComposer.prototype.send(bodyMail, url);
+		$("#product #listePoids .poids").each(function(index) {
+			if(index == 0) {
+				arrayEntetesCellules[ligneTableau] = "<tr style='background-color: #b9babe; text-transform: uppercase;'>";
+				arrayContenuCellules[ligneTableau] = "<tr>";
+			}
+			else if(index % 3 == 0) {
+				arrayEntetesCellules[ligneTableau] += "</tr>";
+				arrayContenuCellules[ligneTableau] += "</tr> <tr></tr><tr></tr>";
+				ligneTableau++;
+				arrayEntetesCellules[ligneTableau] = "<tr style='background-color: #b9babe; text-transform: uppercase;'>";
+				arrayContenuCellules[ligneTableau] = "<tr>";
+			}
+			
+			arrayEntetesCellules[ligneTableau] += "<td colspan='2' style='text-align: center; padding: 0.3em 1em; font-weight: bolder;'>COLIS "+(index+1)+"</td>";
+			arrayContenuCellules[ligneTableau] += "<td style='padding: 0.5em 0 0.5em 0.5em; background-color: #ebecee;'>" +
+													  "<strong>Poids : </strong><br />"+$(this).find(".inputPoids").val() +
+												  "</td>" +
+												  "<td style='padding: 0.5em 0 0.5em 0.5em; background-color: #ebecee;'>" +
+												  	  "<strong>DLC : </strong><br />"+$(this).find(".inputDLC").val() +
+												  "</td>";
+		});
+		
+		for(var i=0; i<=ligneTableau; i++) {
+			bodyMail += arrayEntetesCellules[i];
+			bodyMail += arrayContenuCellules[i];
+		}
+		
+		bodyMail += "</table>";
+		bodyMail += "<div style='width: 550px; margin-top: 15px; float: left;'>" +
+						"<span style='float: right; font-family: Verdana,sans-serif; font-size: 12px; color: black;'>Poids total : <strong>"+poidsTotal+"g</strong></span>" +
+					"</div>";
+		bodyMail += "<div style='width: 550px; margin-top: 15px; float: left;'>" +
+						"<span style='float: right; font-family: Verdana,sans-serif; font-size: 12px; color: black;'>DLC de <strong>"+minDate+"</strong> à <strong>"+maxDate+"</strong></span>" +
+					"</div>";
 	}
+	
+	window.EmailComposer.prototype.send(bodyMail, url, subject);
 });

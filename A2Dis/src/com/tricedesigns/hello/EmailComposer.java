@@ -47,14 +47,15 @@ public class EmailComposer extends Plugin {
 	private void sendEmailViaGmail(String body, String file, String subject) throws Exception{
 		
 		Mail m = new Mail("a2dis.logistique@gmail.com", "b<-6v22Un3TMuJ&");
-		String[] toArr = {"kevbriv@hotmail.fr"};
+		String[] toArr = {"a2dis.logistique@gmail.com"};
 		m.set_to(toArr);
 		m.set_from("a2dis.logistique@gmail.com");
 		m.set_body(body);
 		m.set_subject(subject);
 		
-		if(file != null && file != "")
+		if(!file.equals("")) {
 			m.addAttachment(file);
+		}
 		
 		boolean sendFlag = m.send();
 	}

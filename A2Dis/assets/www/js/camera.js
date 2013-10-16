@@ -44,7 +44,7 @@ function onPhotoURISuccess(imageURI) {
   window.resolveLocalFileSystemURI(imageURI, onResolveSuccess, fail);
 }
 
-var url = null;
+var url = "";
 
 function onResolveSuccess(fileEntry) {
     url = fileEntry.fullPath;

@@ -32,7 +32,6 @@
 		<div id="header">
 			<h1 class="current" data-onglet="preparation">Préparation</h1>
 			<h1 data-onglet="stock">Etat des stocks</h1>
-			<h1 data-onglet="historique">Historique</h1>
 		</div>
 
 		<!-- Page Menu -->
@@ -71,10 +70,6 @@
 			</div>
 		</div>
 		
-		<div class="content" style="display:none" id="historique">
-			historique !!
-		</div>
-		
 		<div class="content" id="preparation">
 		
 			<!-- Infomations client -->
@@ -101,7 +96,7 @@
 						
 						<!-- check poids -->
 						<label id="checkPoids">Même poids pour tous les produits</label>
-						<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
+						<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>g</i></div></div>
 						
 						<!-- check DLC -->
 						<label id="checkDLC">Même DLC pour tous les produits</label>
@@ -110,8 +105,6 @@
 					</div>
 					<div class="clear"></div>
 					<div id="listePoids" class="tripleColonnes"></div>
-					<div class="clear"></div>
-					<label id="poidsTotal">Poids total : <div></div></label>
 				</div>
 			</div>
 
@@ -134,6 +127,8 @@
 					<a style="" href="http://chezfanfan.c.h.pic.centerblog.net/84u8fwiy.jpg" id="image" class="image"><img src="http://chezfanfan.c.h.pic.centerblog.net/84u8fwiy.jpg" /></a>
 					
 					<button id="send">Envoyer</button>
+					<div id="poidsTotal">Poids total : <br/><div></div></div>
+					<div id="DLCTotale"></div>
 				</div>
 			</div>
 			
@@ -142,6 +137,7 @@
 			<div class="typeColonne" id="stockColonne" style="display:none">
 				<div id="contentColonne">
 					<button id="sendStock">Envoyer</button>
+					<div id="nbProduitsStock"></div>
 				</div>
 			</div>
 		</div>
