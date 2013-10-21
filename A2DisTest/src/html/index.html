@@ -17,7 +17,7 @@
 		<script type="text/javascript" charset="utf-8" src="../js/fancybox/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/mobiscroll.custom-2.6.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../js/jquery.touchSwipe.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="../js/tools.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/tools.js" defer></script>
 		<script type="text/javascript" charset="utf-8" src="../js/formulaire.js" defer></script>
 		<script type="text/javascript" charset="utf-8" src="../js/stock.js" defer></script>
 		<script type="text/javascript" charset="utf-8" src="../js/chargement.js" defer></script>
@@ -31,7 +31,7 @@
 		<!-- Header -->
 		<div id="header">
 			<h1 class="current" data-onglet="preparation">Préparation</h1>
-			<h1 data-onglet="stock">Etat des stocks</h1>
+			<h1 data-onglet="stock" style="display:none">Etat des stocks</h1>
 		</div>
 
 		<!-- Page Menu -->
@@ -73,38 +73,57 @@
 		<div class="content" id="preparation">
 		
 			<!-- Infomations client -->
-			<label>Client :</label>
-			<input type="text" id="clientName"/>
-
+			<div class="left large">
+				<span>Client</span>
+			</div>
+			<div class="right small">
+				<span>Date livraison</span>
+			</div>
+			<div class="clear"></div>
+			<div class="left large">
+				<input type="text" id="clientName"/>
+			</div>
+			<div class="right small">
+				<input type="text" class="date" id="dateLivraison" style="text-align: center"/>
+			</div>
+			
+			<div class="clear"></div>
+			
 			<!-- Infomations produit -->
 			<div id="product">
 				<div class="left large">
-					<span>Nom du produit :</span>
+					<span>Produit</span>
 				</div>
 				<div class="right small">
-					<span style="float: right;">Quantité :</span>
+					<span>Nb colis / pièces</span>
 				</div>
+				<div class="clear"></div>
 				<div class="left large">
 					<input type="text" id="productName"/>
 				</div>
 				<div class="right small">
 					<input type="text" id="productQuantity" style="text-align:right;" />
+					<select id="typeQuantite">
+						<option value="C">C</option>
+						<option value="P">P</option>
+					</select>
 				</div>
+				
 				<div id="poidsContainer">
 					<label>Poids et DLC des produits :</label>
 					<div id="optionsPoids">
 						
 						<!-- check poids -->
 						<label id="checkPoids">Même poids pour tous les produits</label>
-						<div id="infosPoidsRef" class="center"><div><strong>></strong></strong></div><input type="text" id="poidsRef"/><div><i>g</i></div></div>
+						<div id="infosPoidsRef" class="center"><div><strong>></strong></div><input type="text" id="poidsRef"/><div><i>Kg</i></div></div>
 						
 						<!-- check DLC -->
 						<label id="checkDLC">Même DLC pour tous les produits</label>
-						<div id="infosDLCRef" class="center"><div><strong>></strong></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
+						<div id="infosDLCRef" class="center"><div><strong>></strong></div><input type="text" class="date" id="DLCRef"/><div><i>DLC</i></div></div>
 					
 					</div>
 					<div class="clear"></div>
-					<div id="listePoids" class="tripleColonnes"></div>
+					<div id="listePoids"></div>
 				</div>
 			</div>
 
