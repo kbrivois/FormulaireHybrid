@@ -12,17 +12,17 @@ var nbProduits = 0;
 
 //produits
 //get
-var sourceProduits = valeurUrl('http://www.aymeric-auberton.fr/getProducts.php');
+var sourceProduits = valeurUrl('http://www.a2-dis.fr/application/getProducts.php');
 var arrayProduitsTemp = $.parseJSON(sourceProduits);
 var arrayProduits = new Array();
 for(var i=0; i<arrayProduitsTemp.length; i++) {
 	arrayProduits.push(arrayProduitsTemp[i]); 
 }
 // add
-var sourceProduitsAdd = "http://www.aymeric-auberton.fr/addProduct.php";
+var sourceProduitsAdd = "http://www.a2-dis.fr/application/addProduct.php";
 
 //clients
-var sourceClient = valeurUrl('http://www.aymeric-auberton.fr/data.php');
+var sourceClient = valeurUrl('http://www.a2-dis.fr/application/data.php');
 var arrayClient = sourceClient.split('%');
 
 // date
@@ -44,6 +44,8 @@ function applyDatePicker() {
 	$(".date").off();
 	
 	$('.date').mobiscroll().date({
+		width: 130,
+		height: 70,
         theme: 'android-ics light',
         lang: 'fr',
         display: 'modal',

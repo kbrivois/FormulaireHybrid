@@ -47,7 +47,7 @@ public class EmailComposer extends Plugin {
 	private void sendEmailViaGmail(String body, String file, String subject) throws Exception{
 		
 		Mail m = new Mail("a2dis.logistique@gmail.com", "b<-6v22Un3TMuJ&");
-		String[] toArr = {"a2dis.logistique@gmail.com"};
+		String[] toArr = {"a2dis.logistique@gmail.com", "a2dis.bureau@gmail.com"};
 		m.set_to(toArr);
 		m.set_from("a2dis.logistique@gmail.com");
 		m.set_body(body);

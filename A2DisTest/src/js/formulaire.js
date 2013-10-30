@@ -375,8 +375,6 @@ $("#send").click(function() {
 							"<span style='float: right; font-family: Verdana,sans-serif; font-size: 12px; color: black;'>DLC de <strong>"+minDate+"</strong> à <strong>"+maxDate+"</strong></span>" +
 						"</div>";
 		}
-
-		$("body").append(bodyMail);
 		window.EmailComposer.prototype.send(bodyMail, url, subject);
 	}
 	else {
